@@ -16,6 +16,8 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Removed conflicting navbar CSS - using Tailwind classes instead */
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }

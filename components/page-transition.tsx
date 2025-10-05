@@ -43,6 +43,7 @@ export default function PageTransition({ children, className = "" }: PageTransit
             ? "opacity-100 translate-y-0" 
             : "opacity-0 translate-y-6"
         }`}
+        style={{ position: 'relative' }}
       >
         {children}
       </div>

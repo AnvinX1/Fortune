@@ -2,13 +2,10 @@
 
 import Link from "next/link"
 import { ArrowRight, Users, Shield, Zap, Award } from "lucide-react"
-import Navigation from "@/components/navigation"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
-      <Navigation />
-
       {/* Enhanced Hero Section */}
       <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden animate-stagger" style={{ animationDelay: '0.1s' }}>
         {/* Background Elements */}
@@ -62,29 +59,39 @@ export default function Home() {
               </div>
             </div>
             <div className="col-span-1 md:col-span-5 flex items-center justify-center">
-              <div className="relative w-full max-w-sm md:max-w-lg">
-                {/* Main product showcase */}
-                <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl md:rounded-3xl p-6 md:p-10 text-white transform rotate-1 md:rotate-2 hover:rotate-0 transition-transform duration-700 shadow-2xl">
-                  <div className="text-center">
-                    <div className="text-4xl md:text-6xl mb-4 md:mb-6">🎁</div>
-                    <h3 className="text-lg md:text-2xl font-bold mb-2 md:mb-3">Premium Gift Collection</h3>
-                    <p className="text-blue-100 text-sm md:text-base mb-3 md:mb-4">Technology • Eco-Friendly • Business</p>
-                    <div className="flex justify-center space-x-2 md:space-x-4 text-xs md:text-sm">
-                      <span className="bg-white bg-opacity-20 px-2 py-1 md:px-3 md:py-1 rounded-full">🔋 Tech</span>
-                      <span className="bg-white bg-opacity-20 px-2 py-1 md:px-3 md:py-1 rounded-full">🌱 Eco</span>
-                      <span className="bg-white bg-opacity-20 px-2 py-1 md:px-3 md:py-1 rounded-full">💼 Business</span>
+              <div className="relative w-full max-w-2xl md:max-w-4xl">
+                {/* Main mesh logo - no background */}
+                <div className="flex items-center justify-center">
+                  <img 
+                    src="/logomain.png" 
+                    alt="Mesh Logo" 
+                    className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] object-contain"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      target.style.display = 'none';
+                      if (fallback) {
+                        fallback.style.display = 'flex';
+                      }
+                    }}
+                  />
+                  <div className="hidden items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-8xl md:text-9xl mb-4">🎁</div>
+                      <h3 className="text-xl md:text-3xl font-bold mb-2">Premium Gift Collection</h3>
+                      <p className="text-gray-600 text-base md:text-lg">Technology • Eco-Friendly • Business</p>
                     </div>
                   </div>
                 </div>
                 {/* Floating elements */}
-                <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-16 h-16 md:w-20 md:h-20 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 w-20 h-20 md:w-24 md:h-24 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
                   <span className="text-2xl md:text-3xl">⭐</span>
                 </div>
-                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
-                  <span className="text-lg md:text-2xl">🌱</span>
+                <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                  <span className="text-xl md:text-2xl">🌱</span>
                 </div>
-                <div className="absolute top-1/2 -left-6 md:-left-8 w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-transform duration-700 shadow-lg">
-                  <span className="text-base md:text-xl">💎</span>
+                <div className="absolute top-1/2 -left-12 md:-left-16 w-12 h-12 md:w-16 md:h-16 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                  <span className="text-lg md:text-xl">💎</span>
                 </div>
               </div>
             </div>
@@ -136,8 +143,12 @@ export default function Home() {
             <div className="col-span-1 md:col-span-6 order-2 md:order-1">
               <div className="aspect-[4/3] bg-white relative rounded-lg overflow-hidden shadow-lg">
                 <div className="absolute inset-3 md:inset-4 border-2 border-blue-600 rounded-lg"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600 text-xl md:text-4xl font-bold">
-                  FORTUNE
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <img 
+                    src="/fortunelgoo.png" 
+                    alt="Fortune Logo" 
+                    className="w-full h-full object-contain transform scale-150"
+                  />
                 </div>
               </div>
             </div>
@@ -540,7 +551,13 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">FORTUNE</h3>
+              <div className="mb-4">
+                <img 
+                  src="/fortunelgoo.png" 
+                  alt="Fortune Logo" 
+                  className="h-8 w-auto object-contain filter brightness-0 invert"
+                />
+              </div>
               <p className="text-blue-100">
                 Premium gifts for every occasion. Strengthening relationships through thoughtful, high-quality promotional products.
               </p>

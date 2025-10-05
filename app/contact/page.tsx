@@ -5,7 +5,6 @@ import type React from "react"
 import Link from "next/link"
 import { useState } from "react"
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from "lucide-react"
-import Navigation from "@/components/navigation"
 
 const contactInfo = [
   {
@@ -95,7 +94,6 @@ export default function Contact() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Navigation />
 
       {/* Enhanced Header Section */}
       <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
@@ -458,7 +456,13 @@ export default function Contact() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">FORTUNE</h3>
+              <div className="mb-4">
+                <img 
+                  src="/fortunelgoo.png" 
+                  alt="Fortune Logo" 
+                  className="h-8 w-auto object-contain filter brightness-0 invert"
+                />
+              </div>
               <p className="text-blue-100">
                 Premium gifts for every occasion. Strengthening relationships through thoughtful, high-quality promotional products.
               </p>
