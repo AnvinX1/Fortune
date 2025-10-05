@@ -38,6 +38,9 @@ export default function Navigation() {
             >
               Products
             </Link>
+            <Link href="/social-media" className="nav-link px-3 py-2 text-xs uppercase tracking-widest hover:text-blue-600 transition-all duration-300 hover:bg-blue-50 rounded-full font-medium">
+              Social
+            </Link>
             <Link href="/contact" className="nav-link px-3 py-2 text-xs uppercase tracking-widest hover:text-blue-600 transition-all duration-300 hover:bg-blue-50 rounded-full font-medium">
               Contact
             </Link>
@@ -104,6 +107,13 @@ export default function Navigation() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Products
+            </Link>
+            <Link
+              href="/social-media"
+              className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-all duration-300 py-3 px-4 hover:bg-blue-50 rounded-2xl flex items-center justify-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Social Media
             </Link>
             <Link
               href="/contact"

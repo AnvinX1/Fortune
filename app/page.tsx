@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* Enhanced Hero Section */}
-      <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden animate-stagger" style={{ animationDelay: '0.1s' }}>
+      <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden animate-stagger" style={{ animationDelay: '0.1s' }}>
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block"></div>

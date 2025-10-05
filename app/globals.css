@@ -180,4 +180,33 @@ body {
     transition: none !important;
     animation: none !important;
   }
+
+  /* Custom Leaflet Popup Styling */
+  .leaflet-popup-content-wrapper {
+    border-radius: 12px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .leaflet-popup-content {
+    margin: 0 !important;
+    line-height: 1.4 !important;
+  }
+
+  .leaflet-popup-tip {
+    background: white !important;
+    box-shadow: 0 3px 14px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Custom marker icons */
+  .leaflet-marker-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }

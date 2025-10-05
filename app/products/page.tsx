@@ -8,119 +8,556 @@ const productCategories = [
   "All",
   "Technology Gifts",
   "Eco-Friendly Products", 
-  "Audio & Speakers",
-  "Office & Business",
-  "Drinkware & Dining",
-  "Bags & Accessories",
+  "USB Flash Drive",
+  "Earbuds & Speakers",
+  "Cables, Adapter & Mobile Stand",
+  "Promotional Gift Sets",
+  "Portfolio Organizer",
+  "Drinkware",
+  "Writing Instruments",
+  "Mousepad",
+  "Promotional Bags",
+  "Wallets & Card Holder",
 ]
 
 const productData = [
+  // TECHNOLOGY GIFTS
   {
     id: 1,
     name: "Wireless Fast Charging Stand",
     category: "Technology Gifts",
-    image: "/placeholder.svg",
+    image: "https://images.unsplash.com/photo-1609091839316-d4bf0b0b8b8c?w=400&h=300&fit=crop&crop=center",
     rating: 4.8,
     reviews: 124,
-    description: "Multi-purpose wireless charging stand with LED indicators and fast charging capability. Perfect for office and home use.",
-    features: ["15W Fast Wireless Charging", "LED Status Indicators", "Universal Compatibility", "Anti-Slip Base"],
+    description: "Multi-purpose wireless charging stand with LED indicators and fast charging capability.",
+    features: ["15W Fast Charging", "LED Indicators", "Universal Compatibility", "Anti-Slip Base"],
     isNew: true,
     isEcoFriendly: false,
   },
   {
     id: 2,
-    name: "Light Up Logo Bamboo Power Bank",
-    category: "Eco-Friendly Products",
-    image: "/placeholder.svg",
-    rating: 4.9,
+    name: "Multi-Purpose Charging Organizer",
+    category: "Technology Gifts",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
     reviews: 89,
+    description: "Organized charging station with multiple ports and cable management system.",
+    features: ["Multi-Port Charging", "Cable Management", "LED Indicators", "Compact Design"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 3,
+    name: "Magnetic Wireless Power Bank",
+    category: "Technology Gifts",
+    image: "https://images.unsplash.com/photo-1609592808170-8c0d5b5e3b3b?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 156,
+    description: "High-capacity magnetic wireless power bank with fast charging and universal compatibility.",
+    features: ["10000mAh Capacity", "Magnetic Attachment", "Wireless Charging", "Fast Charge"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+
+  // ECO-FRIENDLY PRODUCTS
+  {
+    id: 4,
+    name: "Light Up Logo Bamboo Wireless Power Banks",
+    category: "Eco-Friendly Products",
+    image: "https://images.unsplash.com/photo-1609592808170-8c0d5b5e3b3b?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 203,
     description: "Sustainable bamboo wireless power bank with customizable LED logo display. Eco-friendly and stylish.",
     features: ["10000mAh Capacity", "Bamboo Exterior", "LED Logo Display", "Wireless Charging"],
     isNew: false,
     isEcoFriendly: true,
   },
   {
-    id: 3,
-    name: "Premium Wireless Earbuds",
-    category: "Audio & Speakers",
-    image: "/placeholder.svg",
-    rating: 4.7,
-    reviews: 203,
-    description: "High-quality wireless earbuds with charging case and premium sound quality. Perfect for professionals.",
-    features: ["Active Noise Cancellation", "30hr Battery Life", "Wireless Charging Case", "Premium Sound"],
-    isNew: true,
-    isEcoFriendly: false,
-  },
-  {
-    id: 4,
-    name: "A5 Portfolio Organizer",
-    category: "Office & Business",
-    image: "/placeholder.svg",
-    rating: 4.6,
-    reviews: 156,
-    description: "Professional A5 organizer with USB flash drive integration and business card holder. Ideal for meetings.",
-    features: ["A5 Size", "USB Flash Drive", "Business Card Holder", "Premium Leather"],
-    isNew: false,
-    isEcoFriendly: false,
-  },
-  {
     id: 5,
-    name: "Stainless Steel Water Bottle",
-    category: "Drinkware & Dining",
-    image: "/placeholder.svg",
+    name: "Bamboo Water Bottle",
+    category: "Eco-Friendly Products",
+    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=300&fit=crop&crop=center",
     rating: 4.8,
     reviews: 312,
-    description: "Premium stainless steel water bottle with bamboo lid and custom engraving option. Keeps drinks cold for 24 hours.",
-    features: ["24hr Cold Retention", "Bamboo Lid", "Custom Engraving", "BPA Free"],
+    description: "Premium bamboo water bottle with stainless steel interior and leak-proof design.",
+    features: ["Bamboo Exterior", "Stainless Steel Interior", "Leak-Proof", "BPA Free"],
     isNew: false,
     isEcoFriendly: true,
   },
   {
     id: 6,
-    name: "Multifunctional Travel Backpack",
-    category: "Bags & Accessories",
-    image: "/placeholder.svg",
-    rating: 4.9,
+    name: "Wooden USB Flash Drives",
+    category: "Eco-Friendly Products",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.6,
     reviews: 178,
-    description: "Spacious travel backpack with laptop compartment and multiple organization pockets. Perfect for business trips.",
-    features: ["Laptop Compartment", "Multiple Pockets", "Water Resistant", "Ergonomic Design"],
+    description: "Sustainable wooden USB flash drives with high storage capacity and natural finish.",
+    features: ["Wooden Case", "High Storage", "Natural Finish", "Eco-Friendly"],
     isNew: true,
-    isEcoFriendly: false,
+    isEcoFriendly: true,
   },
+
+  // USB FLASH DRIVE
   {
     id: 7,
-    name: "Bluetooth Speaker with Humidifier",
-    category: "Audio & Speakers",
-    image: "/placeholder.svg",
-    rating: 4.5,
-    reviews: 92,
-    description: "Innovative 2-in-1 Bluetooth speaker with built-in humidifier and LED lighting. Perfect for office ambiance.",
-    features: ["360° Sound", "Built-in Humidifier", "LED Lighting", "12hr Battery"],
+    name: "OTG Swivel USB Flash Drive",
+    category: "USB Flash Drive",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 145,
+    description: "Versatile OTG swivel USB flash drive compatible with smartphones and computers.",
+    features: ["OTG Compatible", "Swivel Design", "High Speed", "Universal Compatibility"],
     isNew: true,
     isEcoFriendly: false,
   },
   {
     id: 8,
-    name: "Wooden USB Flash Drive Set",
-    category: "Eco-Friendly Products",
-    image: "/placeholder.svg",
+    name: "Light Up Logo USB",
+    category: "USB Flash Drive",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 267,
+    description: "USB flash drive with customizable LED logo display for brand promotion.",
+    features: ["LED Logo Display", "Customizable", "High Capacity", "Brand Promotion"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 9,
+    name: "ECO Friendly USB",
+    category: "USB Flash Drive",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 189,
+    description: "Environmentally friendly USB flash drive made from recycled materials.",
+    features: ["Recycled Materials", "High Performance", "Eco-Friendly", "Durable"],
+    isNew: true,
+    isEcoFriendly: true,
+  },
+  {
+    id: 10,
+    name: "Leather USB Flash Drive",
+    category: "USB Flash Drive",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.6,
+    reviews: 134,
+    description: "Premium leather USB flash drive with elegant design and high storage capacity.",
+    features: ["Leather Case", "Premium Design", "High Storage", "Elegant Finish"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+
+  // EARBUDS & SPEAKERS
+  {
+    id: 11,
+    name: "Wireless Earbuds",
+    category: "Earbuds & Speakers",
+    image: "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=300&fit=crop&crop=center",
     rating: 4.7,
-    reviews: 67,
-    description: "Set of 3 wooden USB flash drives with different wood types and custom laser engraving. Sustainable and elegant.",
-    features: ["64GB Storage Each", "Natural Wood", "Laser Engraving", "Gift Box Included"],
+    reviews: 298,
+    description: "High-quality wireless earbuds with premium sound quality and long battery life.",
+    features: ["Premium Sound", "Long Battery Life", "Wireless Connection", "Comfortable Fit"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 12,
+    name: "Bluetooth Speaker",
+    category: "Earbuds & Speakers",
+    image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 223,
+    description: "Portable Bluetooth speaker with 360-degree sound and waterproof design.",
+    features: ["360° Sound", "Waterproof", "Long Battery", "Portable"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 13,
+    name: "Wireless Earbuds With Charging Case",
+    category: "Earbuds & Speakers",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 345,
+    description: "Premium wireless earbuds with charging case and active noise cancellation.",
+    features: ["Noise Cancellation", "Charging Case", "Premium Sound", "Long Battery"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 14,
+    name: "Humidifier",
+    category: "Earbuds & Speakers",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.5,
+    reviews: 167,
+    description: "Smart humidifier with LED lighting and remote control for office ambiance.",
+    features: ["Smart Control", "LED Lighting", "Remote Control", "Quiet Operation"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+
+  // CABLES, ADAPTER & MOBILE STAND
+  {
+    id: 15,
+    name: "Storage Box USB Cable",
+    category: "Cables, Adapter & Mobile Stand",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.6,
+    reviews: 198,
+    description: "Organized USB cable storage box with multiple cable types and compartments.",
+    features: ["Multiple Cables", "Storage Compartments", "Organized Design", "Durable"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 16,
+    name: "Light-up Logo Cable",
+    category: "Cables, Adapter & Mobile Stand",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 156,
+    description: "USB cable with LED logo display and fast charging capability.",
+    features: ["LED Logo", "Fast Charging", "Durable", "Brand Promotion"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 17,
+    name: "Travel Adapter",
+    category: "Cables, Adapter & Mobile Stand",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 234,
+    description: "Universal travel adapter with multiple ports and worldwide compatibility.",
+    features: ["Universal Compatibility", "Multiple Ports", "Compact Design", "Safety Protection"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 18,
+    name: "Foldable Mobile Phone Holder",
+    category: "Cables, Adapter & Mobile Stand",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 189,
+    description: "Adjustable foldable mobile phone holder with multiple viewing angles.",
+    features: ["Adjustable Angles", "Foldable Design", "Universal Fit", "Stable Base"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+
+  // PROMOTIONAL GIFT SETS
+  {
+    id: 19,
+    name: "Eco Friendly Gift Sets",
+    category: "Promotional Gift Sets",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 145,
+    description: "Curated eco-friendly gift sets with sustainable products for corporate gifting.",
+    features: ["Sustainable Products", "Gift Box", "Multiple Items", "Eco-Friendly"],
+    isNew: true,
+    isEcoFriendly: true,
+  },
+  {
+    id: 20,
+    name: "Promotional Gift Sets",
+    category: "Promotional Gift Sets",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 267,
+    description: "Premium promotional gift sets with branded items and elegant packaging.",
+    features: ["Branded Items", "Elegant Packaging", "Multiple Products", "Custom Branding"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+
+  // PORTFOLIO ORGANIZER
+  {
+    id: 21,
+    name: "Portfolio Organizer",
+    category: "Portfolio Organizer",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.6,
+    reviews: 178,
+    description: "Professional portfolio organizer with multiple compartments and business card holder.",
+    features: ["Multiple Compartments", "Business Card Holder", "Professional Design", "Durable"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 22,
+    name: "A5 Organizer Office & Business",
+    category: "Portfolio Organizer",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 223,
+    description: "A5 size organizer perfect for office and business use with premium materials.",
+    features: ["A5 Size", "Premium Materials", "Business Use", "Professional"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 23,
+    name: "A5 Note Book",
+    category: "Portfolio Organizer",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.5,
+    reviews: 156,
+    description: "Premium A5 notebook with high-quality paper and professional binding.",
+    features: ["High-Quality Paper", "Professional Binding", "A5 Size", "Durable"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 24,
+    name: "A5 PU Notebook With USB Flash Chip",
+    category: "Portfolio Organizer",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 189,
+    description: "Innovative A5 PU notebook with integrated USB flash drive for digital storage.",
+    features: ["Integrated USB", "PU Cover", "Digital Storage", "Innovative Design"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+
+  // DRINKWARE
+  {
+    id: 25,
+    name: "Stainless Drinkware",
+    category: "Drinkware",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 312,
+    description: "Premium stainless steel drinkware with double-wall insulation and custom engraving.",
+    features: ["Double-Wall Insulation", "Custom Engraving", "BPA Free", "Durable"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 26,
+    name: "Lunch Box With Cutlery Set",
+    category: "Drinkware",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 198,
+    description: "Complete lunch box set with cutlery and compartments for organized meals.",
+    features: ["Complete Set", "Multiple Compartments", "Cutlery Included", "Leak-Proof"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 27,
+    name: "Bamboo Water Bottle",
+    category: "Drinkware",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 245,
+    description: "Eco-friendly bamboo water bottle with stainless steel interior and natural bamboo exterior.",
+    features: ["Bamboo Exterior", "Stainless Interior", "Eco-Friendly", "Leak-Proof"],
     isNew: false,
     isEcoFriendly: true,
   },
   {
-    id: 9,
-    name: "Ceramic Mug with Custom Logo",
-    category: "Drinkware & Dining",
-    image: "/placeholder.svg",
+    id: 28,
+    name: "Ceramic Mugs",
+    category: "Drinkware",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
     rating: 4.6,
-    reviews: 245,
-    description: "Premium ceramic mug with custom logo printing and ergonomic handle. Perfect for office use.",
-    features: ["Custom Logo Printing", "Ergonomic Handle", "Microwave Safe", "Dishwasher Safe"],
+    reviews: 167,
+    description: "Premium ceramic mugs with custom logo printing and comfortable handle design.",
+    features: ["Custom Logo", "Premium Ceramic", "Comfortable Handle", "Dishwasher Safe"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+
+  // WRITING INSTRUMENTS
+  {
+    id: 29,
+    name: "Metal Pen with Stylus",
+    category: "Writing Instruments",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 189,
+    description: "Premium metal pen with integrated stylus for digital and traditional writing.",
+    features: ["Metal Construction", "Integrated Stylus", "Premium Quality", "Dual Purpose"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 30,
+    name: "Plastic Pens",
+    category: "Writing Instruments",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.5,
+    reviews: 234,
+    description: "High-quality plastic pens with smooth writing experience and custom branding.",
+    features: ["Smooth Writing", "Custom Branding", "High Quality", "Comfortable Grip"],
     isNew: false,
+    isEcoFriendly: false,
+  },
+
+  // MOUSEPAD
+  {
+    id: 31,
+    name: "Wireless Charging Mouse Pad",
+    category: "Mousepad",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 156,
+    description: "Innovative mouse pad with wireless charging capability and LED lighting.",
+    features: ["Wireless Charging", "LED Lighting", "High Precision", "Non-Slip Base"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 32,
+    name: "LED Light Up Logo Wireless Mouse",
+    category: "Mousepad",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 178,
+    description: "Wireless mouse with LED logo display and ergonomic design for comfortable use.",
+    features: ["LED Logo Display", "Wireless Connection", "Ergonomic Design", "Long Battery"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+
+  // PROMOTIONAL BAGS
+  {
+    id: 33,
+    name: "Multifunctional Travel Back Packs",
+    category: "Promotional Bags",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 223,
+    description: "Versatile travel backpack with multiple compartments and laptop protection.",
+    features: ["Multiple Compartments", "Laptop Protection", "Water Resistant", "Ergonomic"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 34,
+    name: "String Bag",
+    category: "Promotional Bags",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.6,
+    reviews: 145,
+    description: "Eco-friendly string bag perfect for shopping and daily use with custom printing.",
+    features: ["Eco-Friendly", "Custom Printing", "Lightweight", "Durable"],
+    isNew: true,
+    isEcoFriendly: true,
+  },
+  {
+    id: 35,
+    name: "Non Woven Shopping Bags",
+    category: "Promotional Bags",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 198,
+    description: "Durable non-woven shopping bags with custom logo and reinforced handles.",
+    features: ["Non-Woven Material", "Custom Logo", "Reinforced Handles", "Reusable"],
+    isNew: false,
+    isEcoFriendly: true,
+  },
+  {
+    id: 36,
+    name: "Laptop Bag",
+    category: "Promotional Bags",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.9,
+    reviews: 267,
+    description: "Professional laptop bag with padded compartments and multiple organization pockets.",
+    features: ["Padded Compartments", "Multiple Pockets", "Professional Design", "Durable"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 37,
+    name: "Paper Bag",
+    category: "Promotional Bags",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.5,
+    reviews: 134,
+    description: "Eco-friendly paper bags with custom printing and sturdy construction.",
+    features: ["Eco-Friendly", "Custom Printing", "Sturdy Construction", "Biodegradable"],
+    isNew: false,
+    isEcoFriendly: true,
+  },
+
+  // WALLETS & CARD HOLDER
+  {
+    id: 38,
+    name: "Business Card Holder",
+    category: "Wallets & Card Holder",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 189,
+    description: "Premium business card holder with RFID blocking and elegant design.",
+    features: ["RFID Blocking", "Elegant Design", "Premium Materials", "Compact"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 39,
+    name: "Wallets",
+    category: "Wallets & Card Holder",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 234,
+    description: "High-quality wallets with multiple card slots and cash compartments.",
+    features: ["Multiple Card Slots", "Cash Compartments", "High Quality", "Slim Design"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 40,
+    name: "Metal Keychains with Leather Strap",
+    category: "Wallets & Card Holder",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.6,
+    reviews: 156,
+    description: "Durable metal keychains with premium leather strap and custom engraving.",
+    features: ["Metal Construction", "Leather Strap", "Custom Engraving", "Durable"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 41,
+    name: "Anti Stress Balls",
+    category: "Wallets & Card Holder",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.5,
+    reviews: 178,
+    description: "Soft anti-stress balls with custom logo printing for office stress relief.",
+    features: ["Stress Relief", "Custom Logo", "Soft Material", "Portable"],
+    isNew: true,
+    isEcoFriendly: false,
+  },
+  {
+    id: 42,
+    name: "Car Sunshade",
+    category: "Wallets & Card Holder",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.7,
+    reviews: 145,
+    description: "Foldable car sunshade with custom branding and UV protection.",
+    features: ["UV Protection", "Foldable Design", "Custom Branding", "Universal Fit"],
+    isNew: false,
+    isEcoFriendly: false,
+  },
+  {
+    id: 43,
+    name: "Lanyard",
+    category: "Wallets & Card Holder",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=300&fit=crop&crop=center",
+    rating: 4.8,
+    reviews: 267,
+    description: "Durable lanyard with custom printing and breakaway safety feature.",
+    features: ["Breakaway Safety", "Custom Printing", "Durable", "Adjustable Length"],
+    isNew: true,
     isEcoFriendly: false,
   },
 ]
@@ -155,7 +592,7 @@ export default function Products() {
     <main className="min-h-screen bg-white">
 
       {/* Enhanced Header Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-amber-600 via-orange-600 to-red-600 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block"></div>
@@ -181,19 +618,19 @@ export default function Products() {
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">50+</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">43</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Products</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">6</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">12</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Categories</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">4.8</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">4.7</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Avg Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">1000+</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">5000+</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Reviews</div>
             </div>
           </div>
@@ -314,87 +751,90 @@ export default function Products() {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {sortedProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                  className="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-blue-200"
                 >
-                  <div className="relative aspect-square bg-gradient-to-br from-gray-100 to-gray-200">
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-6xl mb-4">
-                          {product.category === "Technology Gifts" && "🔋"}
-                          {product.category === "Eco-Friendly Products" && "🌱"}
-                          {product.category === "Audio & Speakers" && "🎧"}
-                          {product.category === "Office & Business" && "💼"}
-                          {product.category === "Drinkware & Dining" && "🥤"}
-                          {product.category === "Bags & Accessories" && "🎒"}
-                        </div>
-                      </div>
-                    </div>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                     {/* Badges */}
-                    <div className="absolute top-4 left-4 flex flex-col gap-2">
+                    <div className="absolute top-2 left-2 flex flex-col gap-1">
                       {product.isNew && (
-                        <span className="bg-blue-600 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        <span className="bg-blue-600 text-white px-2 py-1 text-xs font-bold uppercase tracking-wide rounded-md shadow-sm">
                           New
                         </span>
                       )}
                       {product.isEcoFriendly && (
-                        <span className="bg-green-600 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest rounded-full shadow-lg">
+                        <span className="bg-green-600 text-white px-2 py-1 text-xs font-bold uppercase tracking-wide rounded-md shadow-sm">
                           🌱 Eco
                         </span>
                       )}
                     </div>
                     {/* Rating */}
-                    <div className="absolute top-4 right-4 bg-white bg-opacity-90 backdrop-blur-sm px-2 py-1 rounded-full flex items-center gap-1">
-                      <Star className="text-yellow-400 fill-current" size={14} />
-                      <span className="text-sm font-bold">{product.rating}</span>
+                    <div className="absolute top-2 right-2 bg-white bg-opacity-95 backdrop-blur-sm px-2 py-1 rounded-md flex items-center gap-1 shadow-sm">
+                      <Star className="text-yellow-400 fill-current" size={12} />
+                      <span className="text-xs font-bold">{product.rating}</span>
                     </div>
                   </div>
                   
-                  <div className="p-6">
-                    <div className="mb-3">
-                      <span className="bg-blue-100 text-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-widest rounded-full">
+                  <div className="p-4">
+                    <div className="mb-2">
+                      <span className="bg-blue-50 text-blue-600 px-2 py-1 text-xs font-medium rounded-md">
                         {product.category}
                       </span>
                     </div>
                     
-                    <h3 className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                       {product.name}
                     </h3>
                     
-                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">{product.description}</p>
+                    <p className="text-gray-600 text-sm mb-3 leading-relaxed line-clamp-2">{product.description}</p>
                     
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-semibold text-sm text-gray-800">Key Features:</h4>
-                      <ul className="text-sm text-gray-600 space-y-1">
-                        {product.features.slice(0, 3).map((feature, index) => (
-                          <li key={index} className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                    <div className="mb-3">
+                      <div className="flex flex-wrap gap-1">
+                        {product.features.slice(0, 2).map((feature, index) => (
+                          <span key={index} className="bg-gray-100 text-gray-600 px-2 py-1 text-xs rounded-md">
                             {feature}
-                          </li>
+                          </span>
                         ))}
-                      </ul>
-                    </div>
-                    
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm text-gray-500">{product.reviews} reviews</span>
-                      <div className="flex items-center gap-1">
-                        <Star className="text-yellow-400 fill-current" size={16} />
-                        <Star className="text-yellow-400 fill-current" size={16} />
-                        <Star className="text-yellow-400 fill-current" size={16} />
-                        <Star className="text-yellow-400 fill-current" size={16} />
-                        <Star className="text-yellow-400 fill-current" size={16} />
+                        {product.features.length > 2 && (
+                          <span className="bg-gray-100 text-gray-600 px-2 py-1 text-xs rounded-md">
+                            +{product.features.length - 2} more
+                          </span>
+                        )}
                       </div>
                     </div>
                     
-                    <Link
-                      href="/contact"
-                      className="w-full py-4 px-6 bg-blue-600 text-white font-bold uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 text-center block rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                      Request Quote
-                    </Link>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-1">
+                        <div className="flex items-center">
+                          {[...Array(5)].map((_, i) => (
+                            <Star
+                              key={i}
+                              className={`${
+                                i < Math.floor(product.rating)
+                                  ? "text-yellow-400 fill-current"
+                                  : "text-gray-300"
+                              }`}
+                              size={12}
+                            />
+                          ))}
+                        </div>
+                        <span className="text-xs text-gray-500 ml-1">({product.reviews})</span>
+                      </div>
+                      <Link
+                        href="/contact"
+                        className="bg-blue-600 text-white px-3 py-2 hover:bg-blue-700 transition-colors text-xs font-semibold rounded-lg"
+                      >
+                        Quote
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
