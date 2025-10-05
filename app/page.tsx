@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { ArrowRight, Users, Shield, Zap, Award } from "lucide-react"
 import { useState, useEffect } from "react"
+import Globe3D from "../components/globe-3d"
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: number }) {
@@ -57,6 +58,33 @@ export default function Home() {
           <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full hidden md:block animate-ping" style={{ animationDuration: '4s' }}></div>
           <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full hidden md:block animate-spin" style={{ animationDuration: '20s' }}></div>
         </div>
+
+        {/* Animated Globe/Net Web in Top Right Corner */}
+        <div className="absolute top-8 right-8 w-20 h-20 hidden md:block z-20">
+          <div className="relative w-full h-full">
+            {/* Globe/Web Animation */}
+            <div className="absolute inset-0 animate-spin" style={{ animationDuration: '15s' }}>
+              <div className="w-full h-full border-2 border-blue-600 rounded-full relative">
+                {/* Web Lines */}
+                <div className="absolute inset-0">
+                  <div className="absolute top-0 left-1/2 w-0.5 h-full bg-blue-600 transform -translate-x-1/2"></div>
+                  <div className="absolute left-0 top-1/2 w-full h-0.5 bg-blue-600 transform -translate-y-1/2"></div>
+                  <div className="absolute top-1/4 left-1/4 w-0.5 h-1/2 bg-blue-600 transform rotate-45 origin-center"></div>
+                  <div className="absolute top-1/4 right-1/4 w-0.5 h-1/2 bg-blue-600 transform -rotate-45 origin-center"></div>
+                  <div className="absolute bottom-1/4 left-1/4 w-0.5 h-1/2 bg-blue-600 transform -rotate-45 origin-center"></div>
+                  <div className="absolute bottom-1/4 right-1/4 w-0.5 h-1/2 bg-blue-600 transform rotate-45 origin-center"></div>
+                </div>
+                {/* Central Dot */}
+                <div className="absolute top-1/2 left-1/2 w-2 h-2 bg-blue-600 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+              </div>
+            </div>
+            {/* Orbiting Elements */}
+            <div className="absolute top-0 left-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-x-1/2 animate-pulse"></div>
+            <div className="absolute bottom-0 left-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-x-1/2 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute left-0 top-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-y-1/2 animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute right-0 top-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-y-1/2 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+          </div>
+        </div>
         
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
@@ -65,17 +93,16 @@ export default function Home() {
                 🎁 Premium Promotional Gifts
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
-                <span className={`text-blue-600 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>MAKE</span>
+                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>ELEVATE</span>
                 <br />
-                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>LASTING</span>
+                <span className={`text-blue-600 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>YOUR</span>
                 <br />
-                <span className={`text-blue-600 transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>IMPRESSIONS</span>
+                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>BUSINESS</span>
                 <br />
-                <span className={`transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>WITH PREMIUM GIFTS</span>
+                <span className={`transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>TO NEW HEIGHTS</span>
               </h1>
-              <p className={`text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-600 leading-relaxed transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-                Elevate your brand with our curated collection of premium promotional gifts, eco-friendly products, 
-                and cutting-edge technology accessories. Perfect for corporate events, client appreciation, and team recognition across Oman and the Gulf region.
+              <p className={`text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-700 leading-relaxed transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+                Transform your business relationships with our comprehensive suite of premium solutions. From innovative promotional gifts and eco-friendly products to cutting-edge technology accessories and professional services. We deliver excellence across Oman and the Gulf region, helping you build lasting connections and drive meaningful impact.
               </p>
               <div className={`flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
                 <Link href="/products" className="bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-center shadow-xl hover:shadow-2xl rounded-xl font-bold group">
@@ -87,55 +114,29 @@ export default function Home() {
                   <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
-              <div className={`flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-600 transition-all duration-1000 delay-1400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span>Custom Branding</span>
+              <div className={`flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-700 transition-all duration-1000 delay-1400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+                <div className="flex items-center gap-2 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="font-medium">Custom Branding</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
-                  <span>Fast Delivery</span>
+                <div className="flex items-center gap-2 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <div className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-bounce"></div>
+                  <span className="font-medium">Fast Delivery</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
-                  <span>Bulk Discounts</span>
+                <div className="flex items-center gap-2 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
+                  <div className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-ping"></div>
+                  <span className="font-medium">Bulk Discounts</span>
                 </div>
               </div>
             </div>
             <div className="col-span-1 md:col-span-5 flex items-center justify-center">
               <div className="relative w-full max-w-2xl md:max-w-4xl">
-                {/* Main mesh logo - no background */}
-                <div className="flex items-center justify-center">
-                  <img 
-                    src="/logomain.png" 
-                    alt="Mesh Logo" 
-                    className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] object-contain"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      const fallback = target.nextElementSibling as HTMLElement;
-                      target.style.display = 'none';
-                      if (fallback) {
-                        fallback.style.display = 'flex';
-                      }
-                    }}
-                  />
-                  <div className="hidden items-center justify-center">
-                    <div className="text-center">
-                      <div className="text-8xl md:text-9xl mb-4">🎁</div>
-                      <h3 className="text-xl md:text-3xl font-bold mb-2">Premium Gift Collection</h3>
-                      <p className="text-gray-600 text-base md:text-lg">Technology • Eco-Friendly • Business</p>
-                    </div>
+
+                {/* 3D Globe - replacing mesh logo */}
+                <div className="flex items-center justify-center relative z-10">
+                  <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] relative">
+                    <Globe3D />
                   </div>
-                </div>
-                {/* Floating elements */}
-                <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 w-20 h-20 md:w-24 md:h-24 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-all duration-700 shadow-lg hover:shadow-2xl animate-bounce" style={{ animationDuration: '3s' }}>
-                  <span className="text-2xl md:text-3xl">⭐</span>
-                </div>
-                <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-all duration-700 shadow-lg hover:shadow-2xl animate-pulse">
-                  <span className="text-xl md:text-2xl">🌱</span>
-                </div>
-                <div className="absolute top-1/2 -left-12 md:-left-16 w-12 h-12 md:w-16 md:h-16 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-all duration-700 shadow-lg hover:shadow-2xl animate-ping" style={{ animationDuration: '2s' }}>
-                  <span className="text-lg md:text-xl">💎</span>
                 </div>
               </div>
             </div>
@@ -433,31 +434,31 @@ export default function Home() {
               <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
                 <div className="text-white text-2xl font-bold">01</div>
               </div>
-              <h3 className="text-xl font-bold mb-4">Technology Gifts</h3>
+              <h3 className="text-xl font-bold mb-4">STAFFING SOLUTIONS</h3>
               <p className="text-gray-600 mb-6">
-                Wireless charging stands, power banks, cables, adapters, and mobile accessories for the tech-savvy.
+                Comprehensive staffing solutions to meet your business needs with skilled professionals and temporary workforce.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">Explore Products</button>
+              <button className="text-blue-600 font-semibold hover:underline">Explore Services</button>
             </div>
 
             <div className="bg-white p-8 group hover:shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
                 <div className="text-white text-2xl font-bold">02</div>
               </div>
-              <h3 className="text-xl font-bold mb-4">Eco-Friendly Products</h3>
+              <h3 className="text-xl font-bold mb-4">PRO SERVICES</h3>
               <p className="text-gray-600 mb-6">
-                Sustainable bamboo power banks, water bottles, wooden USB drives, and environmentally conscious gifts.
+                Professional services including consulting, project management, and specialized business solutions.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">Explore Products</button>
+              <button className="text-blue-600 font-semibold hover:underline">Explore Services</button>
             </div>
 
             <div className="bg-white p-8 group hover:shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
                 <div className="text-white text-2xl font-bold">03</div>
               </div>
-              <h3 className="text-xl font-bold mb-4">Audio & Speakers</h3>
+              <h3 className="text-xl font-bold mb-4">CORPORATE GIFTS</h3>
               <p className="text-gray-600 mb-6">
-                Premium wireless earbuds, Bluetooth speakers, and audio accessories with charging cases and humidifiers.
+                Premium corporate gifting solutions with custom branding for client appreciation and employee recognition.
               </p>
               <button className="text-blue-600 font-semibold hover:underline">Explore Products</button>
             </div>
@@ -466,34 +467,100 @@ export default function Home() {
               <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
                 <div className="text-white text-2xl font-bold">04</div>
               </div>
-              <h3 className="text-xl font-bold mb-4">Office & Business</h3>
+              <h3 className="text-xl font-bold mb-4">CORPORATE EVENTS</h3>
               <p className="text-gray-600 mb-6">
-                Portfolio organizers, business card holders, writing instruments, and professional office accessories.
+                Complete corporate event management including conferences, seminars, and business gatherings.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">Explore Products</button>
+              <button className="text-blue-600 font-semibold hover:underline">Explore Services</button>
             </div>
 
             <div className="bg-white p-8 group hover:shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
                 <div className="text-white text-2xl font-bold">05</div>
               </div>
-              <h3 className="text-xl font-bold mb-4">Drinkware & Dining</h3>
+              <h3 className="text-xl font-bold mb-4">ENTERTAINMENT EVENTS</h3>
               <p className="text-gray-600 mb-6">
-                Premium stainless steel drinkware, ceramic mugs, lunch boxes with cutlery, and bamboo water bottles.
+                Entertainment event planning and management for corporate parties, team building, and celebrations.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">Explore Products</button>
+              <button className="text-blue-600 font-semibold hover:underline">Explore Services</button>
             </div>
 
             <div className="bg-white p-8 group hover:shadow-lg transition-shadow">
               <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
                 <div className="text-white text-2xl font-bold">06</div>
               </div>
-              <h3 className="text-xl font-bold mb-4">Bags & Accessories</h3>
+              <h3 className="text-xl font-bold mb-4">BRANDING</h3>
               <p className="text-gray-600 mb-6">
-                Travel backpacks, laptop bags, shopping bags, wallets, and promotional bags for every need.
+                Complete branding solutions including logo design, brand identity, and marketing materials.
               </p>
-              <button className="text-blue-600 font-semibold hover:underline">Explore Products</button>
+              <button className="text-blue-600 font-semibold hover:underline">Explore Services</button>
             </div>
+
+            <div className="bg-white p-8 group hover:shadow-lg transition-shadow">
+              <div className="w-16 h-16 bg-blue-600 flex items-center justify-center mb-6">
+                <div className="text-white text-2xl font-bold">07</div>
+              </div>
+              <h3 className="text-xl font-bold mb-4">FITOUTS</h3>
+              <p className="text-gray-600 mb-6">
+                Professional office and commercial space fitouts with modern design and functional layouts.
+              </p>
+              <button className="text-blue-600 font-semibold hover:underline">Explore Services</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Client Logos Section */}
+      <section className="py-16 px-4 md:px-8 bg-white border-t border-gray-200">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">TRUSTED BY LEADING COMPANIES</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We're proud to partner with industry leaders and established businesses across Oman and the Gulf region.
+            </p>
+          </div>
+          
+          {/* Client Logos Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            <div className="group flex items-center justify-center p-4 hover:scale-110 transition-transform duration-300">
+              <div className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 font-semibold text-sm">CLIENT LOGO</span>
+              </div>
+            </div>
+            <div className="group flex items-center justify-center p-4 hover:scale-110 transition-transform duration-300">
+              <div className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 font-semibold text-sm">CLIENT LOGO</span>
+              </div>
+            </div>
+            <div className="group flex items-center justify-center p-4 hover:scale-110 transition-transform duration-300">
+              <div className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 font-semibold text-sm">CLIENT LOGO</span>
+              </div>
+            </div>
+            <div className="group flex items-center justify-center p-4 hover:scale-110 transition-transform duration-300">
+              <div className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 font-semibold text-sm">CLIENT LOGO</span>
+              </div>
+            </div>
+            <div className="group flex items-center justify-center p-4 hover:scale-110 transition-transform duration-300">
+              <div className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 font-semibold text-sm">CLIENT LOGO</span>
+              </div>
+            </div>
+            <div className="group flex items-center justify-center p-4 hover:scale-110 transition-transform duration-300">
+              <div className="w-32 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-500 font-semibold text-sm">CLIENT LOGO</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Reference to Brochure */}
+          <div className="text-center mt-12">
+            <p className="text-gray-600 mb-4">For a complete list of our clients and case studies</p>
+            <Link href="/contact" className="inline-flex items-center text-blue-600 font-semibold hover:underline">
+              View Our Brochure
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -530,6 +597,7 @@ export default function Home() {
                   <h4 className="font-bold">Jennifer Davis</h4>
                   <p className="text-sm text-gray-600">Marketing Director</p>
                   <p className="text-sm text-blue-600 font-semibold">TechCorp Solutions</p>
+                  <p className="text-xs text-gray-500 mt-1">Fortune Client Since 2020</p>
                 </div>
               </div>
             </div>
@@ -552,6 +620,7 @@ export default function Home() {
                   <h4 className="font-bold">Sarah Martinez</h4>
                   <p className="text-sm text-gray-600">HR Manager</p>
                   <p className="text-sm text-green-600 font-semibold">Green Solutions Inc</p>
+                  <p className="text-xs text-gray-500 mt-1">Fortune Client Since 2019</p>
                 </div>
               </div>
             </div>
@@ -574,6 +643,7 @@ export default function Home() {
                   <h4 className="font-bold">Michael Johnson</h4>
                   <p className="text-sm text-gray-600">Sales Director</p>
                   <p className="text-sm text-purple-600 font-semibold">Global Solutions Ltd</p>
+                  <p className="text-xs text-gray-500 mt-1">Fortune Client Since 2021</p>
                 </div>
               </div>
             </div>
