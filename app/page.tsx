@@ -2,58 +2,102 @@
 
 import Link from "next/link"
 import { ArrowRight, Users, Shield, Zap, Award } from "lucide-react"
+import { useState, useEffect } from "react"
+
+// Animated Counter Component
+function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: number }) {
+  const [count, setCount] = useState(0)
+  
+  useEffect(() => {
+    let startTime: number
+    let animationFrame: number
+    
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / duration, 1)
+      
+      setCount(Math.floor(progress * end))
+      
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate)
+      }
+    }
+    
+    // Start animation after a delay
+    const timeout = setTimeout(() => {
+      animationFrame = requestAnimationFrame(animate)
+    }, 500)
+    
+    return () => {
+      clearTimeout(timeout)
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame)
+      }
+    }
+  }, [end, duration])
+  
+  return <span>{count.toLocaleString()}</span>
+}
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false)
+  
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+  
   return (
     <main className="min-h-screen bg-white">
       {/* Enhanced Hero Section */}
-      <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative overflow-hidden animate-stagger" style={{ animationDelay: '0.1s' }}>
-        {/* Background Elements */}
+      <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-blue-600 rounded-full hidden md:block"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full hidden md:block"></div>
-          <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full hidden md:block"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-blue-600 rounded-full hidden md:block animate-bounce" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full hidden md:block animate-ping" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full hidden md:block animate-spin" style={{ animationDuration: '20s' }}></div>
         </div>
         
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-            <div className="col-span-1 md:col-span-7 mb-8 md:mb-0">
-              <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg">
+            <div className={`col-span-1 md:col-span-7 mb-8 md:mb-0 transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+              <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg animate-pulse">
                 🎁 Premium Promotional Gifts
               </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
-                <span className="text-blue-600">MAKE</span>
+                <span className={`text-blue-600 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>MAKE</span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">LASTING</span>
+                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>LASTING</span>
                 <br />
-                <span className="text-blue-600">IMPRESSIONS</span>
+                <span className={`text-blue-600 transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>IMPRESSIONS</span>
                 <br />
-                WITH PREMIUM GIFTS
+                <span className={`transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>WITH PREMIUM GIFTS</span>
               </h1>
-              <p className="text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-600 leading-relaxed">
+              <p className={`text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-600 leading-relaxed transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
                 Elevate your brand with our curated collection of premium promotional gifts, eco-friendly products, 
                 and cutting-edge technology accessories. Perfect for corporate events, client appreciation, and team recognition across Oman and the Gulf region.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
-                <Link href="/products" className="bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-center shadow-xl hover:shadow-2xl rounded-xl font-bold">
+              <div className={`flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+                <Link href="/products" className="bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-center shadow-xl hover:shadow-2xl rounded-xl font-bold group">
                   Explore Products
+                  <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
-                <Link href="/contact" className="border-2 border-blue-600 text-blue-600 px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 text-center rounded-xl font-bold">
+                <Link href="/contact" className="border-2 border-blue-600 text-blue-600 px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 text-center rounded-xl font-bold group">
                   Get Custom Quote
+                  <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
-              <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-600">
-                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              <div className={`flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-600 transition-all duration-1000 delay-1400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                   <span>Custom Branding</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
                   <span>Fast Delivery</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-ping"></div>
                   <span>Bulk Discounts</span>
                 </div>
               </div>
@@ -84,13 +128,13 @@ export default function Home() {
                   </div>
                 </div>
                 {/* Floating elements */}
-                <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 w-20 h-20 md:w-24 md:h-24 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                <div className="absolute -top-8 -right-8 md:-top-12 md:-right-12 w-20 h-20 md:w-24 md:h-24 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-all duration-700 shadow-lg hover:shadow-2xl animate-bounce" style={{ animationDuration: '3s' }}>
                   <span className="text-2xl md:text-3xl">⭐</span>
                 </div>
-                <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                <div className="absolute -bottom-8 -left-8 md:-bottom-12 md:-left-12 w-16 h-16 md:w-20 md:h-20 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-all duration-700 shadow-lg hover:shadow-2xl animate-pulse">
                   <span className="text-xl md:text-2xl">🌱</span>
                 </div>
-                <div className="absolute top-1/2 -left-12 md:-left-16 w-12 h-12 md:w-16 md:h-16 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                <div className="absolute top-1/2 -left-12 md:-left-16 w-12 h-12 md:w-16 md:h-16 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-all duration-700 shadow-lg hover:shadow-2xl animate-ping" style={{ animationDuration: '2s' }}>
                   <span className="text-lg md:text-xl">💎</span>
                 </div>
               </div>
@@ -100,127 +144,174 @@ export default function Home() {
       </section>
 
       {/* Enhanced Statistics Section */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden animate-stagger" style={{ animationDelay: '0.2s' }}>
-        {/* Background Pattern */}
+      <section className="py-20 px-4 md:px-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden">
+        {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full animate-ping" style={{ animationDuration: '2s' }}></div>
+          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full animate-spin" style={{ animationDuration: '15s' }}></div>
         </div>
         
         <div className="container mx-auto relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">Trusted by Leading Brands</h2>
-            <p className="text-blue-100 text-lg max-w-2xl mx-auto">Our track record speaks for itself</p>
+            <div className={`inline-block bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <span className="text-sm font-semibold uppercase tracking-widest">Success Metrics</span>
+            </div>
+            <h2 className={`text-3xl md:text-4xl font-bold tracking-tighter mb-4 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>Trusted by Leading Brands</h2>
+            <p className={`text-blue-100 text-lg max-w-2xl mx-auto transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>Our track record speaks for itself</p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-300">
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">5000+</div>
+            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '800ms' }}>
+              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
+                <AnimatedCounter end={5000} />+
+              </div>
               <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Gifts Delivered</div>
             </div>
-            <div className="group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-300">
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">150+</div>
+            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1000ms' }}>
+              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
+                <AnimatedCounter end={150} />+
+              </div>
               <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Happy Clients</div>
             </div>
-            <div className="group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-300">
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">50+</div>
+            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1200ms' }}>
+              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
+                <AnimatedCounter end={50} />+
+              </div>
               <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Product Categories</div>
             </div>
-            <div className="group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-300">
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">8+</div>
+            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
+              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
+                <AnimatedCounter end={8} />+
+              </div>
               <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Years Experience</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* About Section (Short) */}
-      <section className="py-12 md:py-20 px-4 md:px-8 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-            <div className="col-span-1 md:col-span-6 order-2 md:order-1">
-              <div className="aspect-[4/3] bg-white relative rounded-lg overflow-hidden shadow-lg">
-                <div className="absolute inset-3 md:inset-4 border-2 border-blue-600 rounded-lg"></div>
-                <div className="absolute inset-0 flex items-center justify-center p-4">
-                  <img 
-                    src="/fortunelgoo.png" 
-                    alt="Fortune Logo" 
-                    className="w-full h-full object-contain transform scale-150"
-                  />
+      {/* Redesigned About Section */}
+      <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 right-10 w-24 h-24 border-2 border-blue-600 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <div className={`inline-block bg-blue-100 text-blue-600 px-6 py-3 rounded-full mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <span className="text-sm font-semibold uppercase tracking-widest">About Us</span>
+            </div>
+            <h2 className={`text-4xl md:text-6xl font-bold tracking-tighter mb-6 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>WHO WE ARE</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image Section */}
+            <div className={`order-2 lg:order-1 transition-all duration-1000 delay-600 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 rounded-3xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+                <div className="relative bg-white rounded-3xl p-8 shadow-2xl transform group-hover:-translate-y-2 transition-transform duration-500">
+                  <div className="aspect-[4/3] flex items-center justify-center">
+                    <img 
+                      src="/fortunelgoo.png" 
+                      alt="Fortune Logo" 
+                      className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-span-1 md:col-span-6 flex flex-col justify-center order-1 md:order-2 px-2 md:px-0">
-              <div className="w-12 md:w-16 h-1 bg-blue-600 mb-3 md:mb-6"></div>
-              <h2 className="text-2xl md:text-4xl font-bold tracking-tighter mb-3 md:mb-6">WHO WE ARE</h2>
-              <p className="text-sm md:text-lg mb-3 md:mb-6 text-gray-600 leading-relaxed">
-                Fortune is Oman's trusted partner in premium gifting solutions, specializing in promotional products, 
-                eco-friendly gifts, and technology accessories that create memorable experiences across the Sultanate.
-              </p>
-              <p className="text-gray-600 mb-4 md:mb-8 text-xs md:text-base leading-relaxed">
-                We curate exceptional gift collections that strengthen relationships, boost brand recognition, 
-                and make every occasion special with quality products and personalized service throughout Oman and the Gulf region.
-              </p>
-              <Link href="/about" className="text-blue-600 font-semibold flex items-center hover:underline text-xs md:text-base w-fit">
-                Learn More <ArrowRight className="ml-2" size={14} />
-              </Link>
+            
+            {/* Content Section */}
+            <div className={`order-1 lg:order-2 space-y-8 transition-all duration-1000 delay-800 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+              <div className="space-y-6">
+                <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                  Oman's Premier <span className="text-blue-600">Gifting Partner</span>
+                </h3>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Fortune is Oman's trusted partner in premium gifting solutions, specializing in promotional products, 
+                  eco-friendly gifts, and technology accessories that create memorable experiences across the Sultanate.
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  We curate exceptional gift collections that strengthen relationships, boost brand recognition, 
+                  and make every occasion special with quality products and personalized service throughout Oman and the Gulf region.
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/about" className="group bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center justify-center">
+                  Learn More
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <Link href="/contact" className="group border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+                  Get Started
+                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Enhanced Why Choose Us Section */}
-      <section className="py-20 px-4 md:px-8 bg-white">
-        <div className="container mx-auto">
+      <section className="py-20 px-4 md:px-8 bg-white relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-10 left-20 w-40 h-40 border-2 border-blue-600 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-10 right-20 w-32 h-32 border-2 border-blue-600 rounded-full animate-bounce" style={{ animationDuration: '4s' }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
-            <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 text-sm font-semibold uppercase tracking-widest mb-4">
-              Why Choose Us
+            <div className={`inline-block bg-blue-100 text-blue-600 px-6 py-3 rounded-full mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <span className="text-sm font-semibold uppercase tracking-widest">Why Choose Us</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">OUR ADVANTAGES</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className={`text-4xl md:text-6xl font-bold tracking-tighter mb-6 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>OUR ADVANTAGES</h2>
+            <p className={`text-xl text-gray-600 max-w-3xl mx-auto transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
               We're committed to delivering exceptional value through premium products, personalized service, and innovative solutions.
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Users className="text-white" size={40} />
+            <div className={`group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-300 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '800ms' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                <Users className="text-white group-hover:animate-pulse" size={40} />
               </div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors">Quality Products</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
                 We source premium quality gifts and promotional products from trusted suppliers worldwide, ensuring every item meets our high standards.
               </p>
             </div>
 
-            <div className="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Shield className="text-white" size={40} />
+            <div className={`group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-300 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1000ms' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                <Shield className="text-white group-hover:animate-bounce" size={40} />
               </div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors">Custom Branding</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
                 Personalize your gifts with custom logos, colors, and designs to strengthen your brand presence and create lasting impressions.
               </p>
             </div>
 
-            <div className="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Zap className="text-white" size={40} />
+            <div className={`group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-300 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1200ms' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                <Zap className="text-white group-hover:animate-ping" size={40} />
               </div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors">Fast Delivery</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
                 Quick turnaround times with reliable shipping to ensure your gifts arrive on time for any occasion or event.
               </p>
             </div>
 
-            <div className="group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                <Award className="text-white" size={40} />
+            <div className={`group bg-white border border-gray-200 rounded-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:border-blue-300 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl">
+                <Award className="text-white group-hover:animate-spin" style={{ animationDuration: '2s' }} size={40} />
               </div>
               <h3 className="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors">Eco-Friendly Options</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors">
                 Sustainable gift options including bamboo products and eco-friendly materials for conscious gifting and environmental responsibility.
               </p>
             </div>

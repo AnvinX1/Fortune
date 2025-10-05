@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Target, Eye, Heart, Award, Globe } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const teamMembers = [
   {
@@ -50,49 +51,55 @@ const stats = [
 ]
 
 export default function About() {
+  const [isVisible, setIsVisible] = useState(false)
+  
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+  
   return (
     <main className="min-h-screen bg-white">
 
       {/* Enhanced Header Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700 text-white relative overflow-hidden">
-        {/* Background Pattern */}
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+        {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block animate-bounce" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block animate-ping" style={{ animationDuration: '2s' }}></div>
+          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block animate-spin" style={{ animationDuration: '15s' }}></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6">
+          <div className={`inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             Our Story
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight md:tracking-tighter mb-6 md:mb-8 leading-tight">
-            <span className="block break-words">CRAFTING</span>
-            <span className="block text-blue-200">MEANINGFUL</span>
-            <span className="block">CONNECTIONS</span>
+            <span className={`block break-words transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>CRAFTING</span>
+            <span className={`block text-blue-200 transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>MEANINGFUL</span>
+            <span className={`block transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>CONNECTIONS</span>
           </h1>
-          <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0">
+          <p className={`text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0 transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             Since 2017, Fortune has been Oman's premier gifting company, dedicated to transforming ordinary promotional items into extraordinary gifts 
             that create lasting impressions and strengthen business relationships across the Sultanate and the broader Gulf region.
           </p>
           
           {/* Key Stats in Hero */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">8+</div>
+          <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+            <div className="text-center group">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300">8+</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Years Experience</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">5000+</div>
+            <div className="text-center group">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300">5000+</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Gifts Delivered</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">150+</div>
+            <div className="text-center group">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300">150+</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Happy Clients</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">25+</div>
+            <div className="text-center group">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300">25+</div>
               <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Team Members</div>
             </div>
           </div>

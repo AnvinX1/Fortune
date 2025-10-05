@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Check, Star, Clock } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const services = [
   {
@@ -154,29 +155,35 @@ const processSteps = [
 ]
 
 export default function Services() {
+  const [isVisible, setIsVisible] = useState(false)
+  
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+  
   return (
     <main className="min-h-screen bg-white">
 
       {/* Enhanced Header Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-violet-600 via-purple-600 to-fuchsia-700 text-white relative overflow-hidden">
-        {/* Background Pattern */}
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+        {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block animate-bounce" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block animate-ping" style={{ animationDuration: '2s' }}></div>
+          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block animate-spin" style={{ animationDuration: '15s' }}></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6">
+          <div className={`inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             Premium Services
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight md:tracking-tighter mb-6 md:mb-8 leading-tight">
-            <span className="block break-words">COMPREHENSIVE</span>
-            <span className="block text-blue-200">GIFTING</span>
-            <span className="block">SERVICES</span>
+            <span className={`block break-words transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>COMPREHENSIVE</span>
+            <span className={`block text-blue-200 transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>GIFTING</span>
+            <span className={`block transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>SERVICES</span>
           </h1>
-          <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0">
+          <p className={`text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0 transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             From consultation to delivery, we provide end-to-end promotional gift services that strengthen your brand 
             and build lasting relationships with clients and employees across Oman and the Gulf region.
           </p>

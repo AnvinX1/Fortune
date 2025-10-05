@@ -14,6 +14,7 @@ import {
   Heart,
   Share2
 } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const socialMediaPlatforms = [
   {
@@ -148,6 +149,12 @@ const quickStats = [
 ]
 
 export default function SocialMedia() {
+  const [isVisible, setIsVisible] = useState(false)
+  
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+  
   const handleSocialClick = (url: string, platform: string) => {
     // Track social media clicks
     console.log(`Clicked on ${platform}: ${url}`)
@@ -157,38 +164,38 @@ export default function SocialMedia() {
   return (
     <main className="min-h-screen bg-white">
       {/* Enhanced Header Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-pink-600 via-rose-600 to-red-600 text-white relative overflow-hidden">
-        {/* Background Pattern */}
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+        {/* Animated Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block"></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block animate-pulse"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block animate-bounce" style={{ animationDuration: '3s' }}></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block animate-ping" style={{ animationDuration: '2s' }}></div>
+          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block animate-spin" style={{ animationDuration: '15s' }}></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg">
+          <div className={`inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             📱 Connect With Us
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
-            <span className="text-white">FOLLOW</span>
+            <span className={`text-white transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>FOLLOW</span>
             <br />
-            <span className="bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent">OUR</span>
+            <span className={`bg-gradient-to-r from-blue-200 to-white bg-clip-text text-transparent transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>OUR</span>
             <br />
-            <span className="text-white">JOURNEY</span>
+            <span className={`text-white transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>JOURNEY</span>
             <br />
-            <span className="text-blue-200">ON SOCIAL MEDIA</span>
+            <span className={`text-blue-200 transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>ON SOCIAL MEDIA</span>
           </h1>
-          <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0">
+          <p className={`text-lg md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0 transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             Stay connected with Fortune Gifts Oman across all our social media platforms. 
             Get the latest updates, product launches, and exclusive offers.
           </p>
           
           {/* Quick Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto transition-all duration-1000 delay-1400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             {quickStats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">{stat.value}</div>
+              <div key={index} className="text-center group">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
                 <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">{stat.label}</div>
                 <div className="text-xs text-blue-300 mt-1">{stat.description}</div>
               </div>
@@ -198,21 +205,31 @@ export default function SocialMedia() {
       </section>
 
       {/* Social Media Platforms */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50">
-        <div className="container mx-auto">
+      <section className="py-20 px-4 md:px-8 bg-gray-50 relative overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 right-10 w-24 h-24 border-2 border-blue-600 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+        </div>
+        
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-4">OUR SOCIAL MEDIA</h2>
-            <p className="text-lg text-gray-600 max-w-xl mx-auto">
+            <div className={`inline-block bg-blue-100 text-blue-600 px-6 py-3 rounded-full mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <span className="text-sm font-semibold uppercase tracking-widest">Social Platforms</span>
+            </div>
+            <h2 className={`text-3xl md:text-5xl font-bold tracking-tighter mb-4 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>OUR SOCIAL MEDIA</h2>
+            <p className={`text-lg text-gray-600 max-w-xl mx-auto transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
               Connect with us on your favorite platforms.
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-            {socialMediaPlatforms.map((platform) => (
+            {socialMediaPlatforms.map((platform, index) => (
               <div
                 key={platform.id}
                 onClick={() => handleSocialClick(platform.url, platform.name)}
-                className="group cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 hover:border-gray-200 overflow-hidden"
+                className={`group cursor-pointer bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 border border-gray-100 hover:border-gray-200 overflow-hidden ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                style={{ transitionDelay: `${800 + (index * 100)}ms` }}
               >
                 <div className={`relative h-20 bg-gradient-to-br ${platform.bgGradient} flex items-center justify-center`}>
                   <platform.icon className="text-white text-2xl group-hover:scale-110 transition-transform duration-300" />
@@ -292,7 +309,7 @@ export default function SocialMedia() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-pink-600 via-rose-600 to-red-600 text-white">
+      <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white">
         <div className="container mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6">STAY IN THE LOOP</h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
