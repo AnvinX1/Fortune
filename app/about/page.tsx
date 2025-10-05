@@ -56,46 +56,46 @@ export default function About() {
       <Navigation />
 
       {/* Enhanced Header Section */}
-      <section className="pt-32 pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block"></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-2 text-sm font-semibold uppercase tracking-widest mb-6">
+          <div className="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6">
             Our Story
           </div>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
-            <span className="block">CRAFTING</span>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight md:tracking-tighter mb-6 md:mb-8 leading-tight">
+            <span className="block break-words">CRAFTING</span>
             <span className="block text-blue-200">MEANINGFUL</span>
             <span className="block">CONNECTIONS</span>
           </h1>
-          <p className="text-xl max-w-3xl mx-auto mb-12 text-blue-100 leading-relaxed">
+          <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0">
             Since 2017, Fortune has been Oman's premier gifting company, dedicated to transforming ordinary promotional items into extraordinary gifts 
             that create lasting impressions and strengthen business relationships across the Sultanate and the broader Gulf region.
           </p>
           
           {/* Key Stats in Hero */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">8+</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Years Experience</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">8+</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Years Experience</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">5000+</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Gifts Delivered</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">5000+</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Gifts Delivered</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">150+</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Happy Clients</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">150+</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Happy Clients</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">25+</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Team Members</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">25+</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Team Members</div>
             </div>
           </div>
         </div>
@@ -172,31 +172,31 @@ export default function About() {
       </section>
 
       {/* Enhanced Mission & Vision */}
-      <section className="py-20 px-4 md:px-8 bg-white">
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12 md:mb-16">
             <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 text-sm font-semibold uppercase tracking-widest mb-4">
               Our Foundation
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">MISSION & VISION</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tighter mb-4 md:mb-6">MISSION & VISION</h2>
+            <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto">
               The driving force behind everything we do at Fortune Gifts
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
             {/* Mission */}
-            <div className="group bg-white p-10 shadow-xl rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                <Target className="text-white" size={40} />
+            <div className="group bg-white p-6 md:p-10 shadow-xl rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-300">
+                <Target className="text-white" size={32} />
               </div>
-              <h3 className="text-3xl font-bold tracking-tighter mb-6">OUR MISSION</h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tighter mb-4 md:mb-6">OUR MISSION</h3>
+              <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                 To empower businesses with premium promotional gifts that strengthen relationships, enhance brand recognition, and
                 create lasting positive impressions that drive business growth and customer loyalty.
               </p>
-              <div className="mt-6 flex items-center text-blue-600 font-semibold">
-                <span>Learn More</span>
+              <div className="mt-4 md:mt-6 flex items-center text-blue-600 font-semibold">
+                <span className="text-sm md:text-base">Learn More</span>
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -204,17 +204,17 @@ export default function About() {
             </div>
 
             {/* Vision */}
-            <div className="group bg-white p-10 shadow-xl rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
-                <Eye className="text-white" size={40} />
+            <div className="group bg-white p-6 md:p-10 shadow-xl rounded-2xl border border-gray-100 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 md:mb-8 group-hover:scale-110 transition-transform duration-300">
+                <Eye className="text-white" size={32} />
               </div>
-              <h3 className="text-3xl font-bold tracking-tighter mb-6">OUR VISION</h3>
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <h3 className="text-2xl md:text-3xl font-bold tracking-tighter mb-4 md:mb-6">OUR VISION</h3>
+              <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                 To be the leading provider of premium promotional gifts worldwide, helping organizations create meaningful
                 connections and achieve unprecedented levels of brand loyalty through thoughtful, high-quality products.
               </p>
-              <div className="mt-6 flex items-center text-blue-600 font-semibold">
-                <span>Explore Vision</span>
+              <div className="mt-4 md:mt-6 flex items-center text-blue-600 font-semibold">
+                <span className="text-sm md:text-base">Explore Vision</span>
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

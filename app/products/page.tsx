@@ -157,46 +157,46 @@ export default function Products() {
       <Navigation />
 
       {/* Enhanced Header Section */}
-      <section className="pt-32 pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
+      <section className="pt-24 pb-16 md:pt-32 md:pb-20 px-4 md:px-8 bg-gradient-to-br from-blue-600 to-blue-800 text-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full"></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full"></div>
+          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full hidden md:block"></div>
+          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full hidden md:block"></div>
         </div>
         
         <div className="container mx-auto text-center relative z-10">
-          <div className="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-6 py-2 text-sm font-semibold uppercase tracking-widest mb-6">
+          <div className="inline-block bg-white bg-opacity-20 backdrop-blur-sm rounded-full px-4 py-2 md:px-6 md:py-2 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6">
             Premium Collection
           </div>
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8">
-            <span className="block">DISCOVER</span>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold tracking-tight md:tracking-tighter mb-6 md:mb-8 leading-tight">
+            <span className="block break-words">DISCOVER</span>
             <span className="block text-blue-200">PREMIUM</span>
             <span className="block">PRODUCTS</span>
           </h1>
-          <p className="text-xl max-w-3xl mx-auto mb-12 text-blue-100 leading-relaxed">
+          <p className="text-base md:text-xl max-w-3xl mx-auto mb-8 md:mb-12 text-blue-100 leading-relaxed px-2 md:px-0">
             Explore our curated collection of promotional gifts and accessories. Each product is carefully selected for quality, 
             functionality, and lasting brand impact across Oman and the Gulf region.
           </p>
           
           {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">50+</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Products</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">50+</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Products</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">6</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Categories</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">6</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Categories</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">4.8</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Avg Rating</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">4.8</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Avg Rating</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold mb-2">1000+</div>
-              <div className="text-sm text-blue-200 uppercase tracking-widest">Reviews</div>
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 md:mb-2">1000+</div>
+              <div className="text-xs md:text-sm text-blue-200 uppercase tracking-widest">Reviews</div>
             </div>
           </div>
         </div>

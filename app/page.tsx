@@ -130,30 +130,30 @@ export default function Home() {
       </section>
 
       {/* About Section (Short) */}
-      <section className="py-16 md:py-20 px-4 md:px-8 bg-gray-50">
+      <section className="py-12 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
             <div className="col-span-1 md:col-span-6 order-2 md:order-1">
-              <div className="aspect-[4/3] md:aspect-[4/3] bg-white relative rounded-lg overflow-hidden">
-                <div className="absolute inset-4 border-2 border-blue-600 rounded-lg"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600 text-2xl md:text-4xl font-bold">
+              <div className="aspect-[4/3] bg-white relative rounded-lg overflow-hidden shadow-lg">
+                <div className="absolute inset-3 md:inset-4 border-2 border-blue-600 rounded-lg"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600 text-xl md:text-4xl font-bold">
                   FORTUNE
                 </div>
               </div>
             </div>
-            <div className="col-span-1 md:col-span-6 flex flex-col justify-center order-1 md:order-2">
-              <div className="w-16 h-1 bg-blue-600 mb-4 md:mb-6"></div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 md:mb-6">WHO WE ARE</h2>
-              <p className="text-base md:text-lg mb-4 md:mb-6 text-gray-600 leading-relaxed">
+            <div className="col-span-1 md:col-span-6 flex flex-col justify-center order-1 md:order-2 px-2 md:px-0">
+              <div className="w-12 md:w-16 h-1 bg-blue-600 mb-3 md:mb-6"></div>
+              <h2 className="text-2xl md:text-4xl font-bold tracking-tighter mb-3 md:mb-6">WHO WE ARE</h2>
+              <p className="text-sm md:text-lg mb-3 md:mb-6 text-gray-600 leading-relaxed">
                 Fortune is Oman's trusted partner in premium gifting solutions, specializing in promotional products, 
                 eco-friendly gifts, and technology accessories that create memorable experiences across the Sultanate.
               </p>
-              <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
+              <p className="text-gray-600 mb-4 md:mb-8 text-xs md:text-base leading-relaxed">
                 We curate exceptional gift collections that strengthen relationships, boost brand recognition, 
                 and make every occasion special with quality products and personalized service throughout Oman and the Gulf region.
               </p>
-              <Link href="/about" className="text-blue-600 font-semibold flex items-center hover:underline text-sm md:text-base">
-                Learn More <ArrowRight className="ml-2" size={16} />
+              <Link href="/about" className="text-blue-600 font-semibold flex items-center hover:underline text-xs md:text-base w-fit">
+                Learn More <ArrowRight className="ml-2" size={14} />
               </Link>
             </div>
           </div>
