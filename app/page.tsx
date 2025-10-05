@@ -10,22 +10,22 @@ export default function Home() {
       <Navigation />
 
       {/* Enhanced Hero Section */}
-      <section className="pt-32 pb-24 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden animate-stagger" style={{ animationDelay: '0.1s' }}>
+      <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden animate-stagger" style={{ animationDelay: '0.1s' }}>
         {/* Background Elements */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-blue-600 rounded-full"></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full"></div>
-          <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full"></div>
+          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block"></div>
+          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-blue-600 rounded-full hidden md:block"></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full hidden md:block"></div>
+          <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full hidden md:block"></div>
         </div>
         
         <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-12 gap-12 items-center">
-            <div className="col-span-12 md:col-span-7 mb-8 md:mb-0">
-              <div className="inline-block bg-blue-100 text-blue-600 px-6 py-3 text-sm font-semibold uppercase tracking-widest mb-6 rounded-full shadow-lg">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div className="col-span-1 md:col-span-7 mb-8 md:mb-0">
+              <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg">
                 🎁 Premium Promotional Gifts
               </div>
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
                 <span className="text-blue-600">MAKE</span>
                 <br />
                 <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">LASTING</span>
@@ -34,57 +34,57 @@ export default function Home() {
                 <br />
                 WITH PREMIUM GIFTS
               </h1>
-            <p className="text-xl max-w-2xl mb-8 text-gray-600 leading-relaxed">
-              Elevate your brand with our curated collection of premium promotional gifts, eco-friendly products, 
-              and cutting-edge technology accessories. Perfect for corporate events, client appreciation, and team recognition across Oman and the Gulf region.
-            </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/products" className="bg-blue-600 text-white px-10 py-4 text-sm uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-center shadow-xl hover:shadow-2xl rounded-xl font-bold">
+              <p className="text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-600 leading-relaxed">
+                Elevate your brand with our curated collection of premium promotional gifts, eco-friendly products, 
+                and cutting-edge technology accessories. Perfect for corporate events, client appreciation, and team recognition across Oman and the Gulf region.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8">
+                <Link href="/products" className="bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-center shadow-xl hover:shadow-2xl rounded-xl font-bold">
                   Explore Products
                 </Link>
-                <Link href="/contact" className="border-2 border-blue-600 text-blue-600 px-10 py-4 text-sm uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 text-center rounded-xl font-bold">
+                <Link href="/contact" className="border-2 border-blue-600 text-blue-600 px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 text-center rounded-xl font-bold">
                   Get Custom Quote
                 </Link>
               </div>
-              <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+              <div className="flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-600">
+                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>Custom Branding</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>Fast Delivery</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
+                <div className="flex items-center gap-2 bg-white px-3 py-1 md:px-4 md:py-2 rounded-full shadow-sm">
                   <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                   <span>Bulk Discounts</span>
                 </div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-5 flex items-center justify-center">
-              <div className="relative w-full max-w-lg">
+            <div className="col-span-1 md:col-span-5 flex items-center justify-center">
+              <div className="relative w-full max-w-sm md:max-w-lg">
                 {/* Main product showcase */}
-                <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-3xl p-10 text-white transform rotate-2 hover:rotate-0 transition-transform duration-700 shadow-2xl">
+                <div className="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl md:rounded-3xl p-6 md:p-10 text-white transform rotate-1 md:rotate-2 hover:rotate-0 transition-transform duration-700 shadow-2xl">
                   <div className="text-center">
-                    <div className="text-6xl mb-6">🎁</div>
-                    <h3 className="text-2xl font-bold mb-3">Premium Gift Collection</h3>
-                    <p className="text-blue-100 text-base mb-4">Technology • Eco-Friendly • Business</p>
-                    <div className="flex justify-center space-x-4 text-sm">
-                      <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full">🔋 Tech</span>
-                      <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full">🌱 Eco</span>
-                      <span className="bg-white bg-opacity-20 px-3 py-1 rounded-full">💼 Business</span>
+                    <div className="text-4xl md:text-6xl mb-4 md:mb-6">🎁</div>
+                    <h3 className="text-lg md:text-2xl font-bold mb-2 md:mb-3">Premium Gift Collection</h3>
+                    <p className="text-blue-100 text-sm md:text-base mb-3 md:mb-4">Technology • Eco-Friendly • Business</p>
+                    <div className="flex justify-center space-x-2 md:space-x-4 text-xs md:text-sm">
+                      <span className="bg-white bg-opacity-20 px-2 py-1 md:px-3 md:py-1 rounded-full">🔋 Tech</span>
+                      <span className="bg-white bg-opacity-20 px-2 py-1 md:px-3 md:py-1 rounded-full">🌱 Eco</span>
+                      <span className="bg-white bg-opacity-20 px-2 py-1 md:px-3 md:py-1 rounded-full">💼 Business</span>
                     </div>
                   </div>
                 </div>
                 {/* Floating elements */}
-                <div className="absolute -top-6 -right-6 w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
-                  <span className="text-3xl">⭐</span>
+                <div className="absolute -top-4 -right-4 md:-top-6 md:-right-6 w-16 h-16 md:w-20 md:h-20 bg-yellow-400 rounded-full flex items-center justify-center transform -rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                  <span className="text-2xl md:text-3xl">⭐</span>
                 </div>
-                <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
-                  <span className="text-2xl">🌱</span>
+                <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 w-12 h-12 md:w-16 md:h-16 bg-green-500 rounded-full flex items-center justify-center transform rotate-12 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                  <span className="text-lg md:text-2xl">🌱</span>
                 </div>
-                <div className="absolute top-1/2 -left-8 w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-transform duration-700 shadow-lg">
-                  <span className="text-xl">💎</span>
+                <div className="absolute top-1/2 -left-6 md:-left-8 w-10 h-10 md:w-12 md:h-12 bg-purple-500 rounded-full flex items-center justify-center transform -rotate-45 hover:rotate-0 transition-transform duration-700 shadow-lg">
+                  <span className="text-base md:text-xl">💎</span>
                 </div>
               </div>
             </div>
@@ -130,29 +130,29 @@ export default function Home() {
       </section>
 
       {/* About Section (Short) */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50">
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="container mx-auto">
-          <div className="grid grid-cols-12 gap-8">
-            <div className="col-span-12 md:col-span-6">
-              <div className="aspect-[4/3] bg-white relative">
-                <div className="absolute inset-4 border-2 border-blue-600"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600 text-4xl font-bold">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8">
+            <div className="col-span-1 md:col-span-6 order-2 md:order-1">
+              <div className="aspect-[4/3] md:aspect-[4/3] bg-white relative rounded-lg overflow-hidden">
+                <div className="absolute inset-4 border-2 border-blue-600 rounded-lg"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-blue-600 text-2xl md:text-4xl font-bold">
                   FORTUNE
                 </div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-6 flex flex-col justify-center">
-              <div className="w-16 h-1 bg-blue-600 mb-6"></div>
-              <h2 className="text-4xl font-bold tracking-tighter mb-6">WHO WE ARE</h2>
-              <p className="text-lg mb-6 text-gray-600">
+            <div className="col-span-1 md:col-span-6 flex flex-col justify-center order-1 md:order-2">
+              <div className="w-16 h-1 bg-blue-600 mb-4 md:mb-6"></div>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 md:mb-6">WHO WE ARE</h2>
+              <p className="text-base md:text-lg mb-4 md:mb-6 text-gray-600 leading-relaxed">
                 Fortune is Oman's trusted partner in premium gifting solutions, specializing in promotional products, 
                 eco-friendly gifts, and technology accessories that create memorable experiences across the Sultanate.
               </p>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-6 md:mb-8 text-sm md:text-base leading-relaxed">
                 We curate exceptional gift collections that strengthen relationships, boost brand recognition, 
                 and make every occasion special with quality products and personalized service throughout Oman and the Gulf region.
               </p>
-              <Link href="/about" className="text-blue-600 font-semibold flex items-center hover:underline">
+              <Link href="/about" className="text-blue-600 font-semibold flex items-center hover:underline text-sm md:text-base">
                 Learn More <ArrowRight className="ml-2" size={16} />
               </Link>
             </div>

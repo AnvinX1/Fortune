@@ -102,46 +102,46 @@ export default function About() {
       </section>
 
       {/* Enhanced Company Story */}
-      <section className="py-20 px-4 md:px-8 bg-gray-50">
+      <section className="py-16 md:py-20 px-4 md:px-8 bg-gray-50">
         <div className="container mx-auto">
-          <div className="grid grid-cols-12 gap-12 items-center">
-            <div className="col-span-12 md:col-span-6">
-              <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 text-sm font-semibold uppercase tracking-widest mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+            <div className="col-span-1 md:col-span-6 order-2 md:order-1">
+              <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6">
                 Our Journey
               </div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-8">FROM VISION TO IMPACT</h2>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">2017</span>
+              <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold tracking-tighter mb-6 md:mb-8">FROM VISION TO IMPACT</h2>
+              <div className="space-y-4 md:space-y-6">
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm md:text-base">2017</span>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">The Beginning</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">The Beginning</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                       Founded with a vision to bridge the gap between ordinary promotional items and meaningful gifts 
                       that create lasting impressions.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">2020</span>
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm md:text-base">2020</span>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Digital Transformation</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">Digital Transformation</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                       Launched our online platform, expanding our reach and making premium promotional gifts 
-                      accessible to businesses worldwide.
+                      accessible to businesses across Oman and the Gulf region.
                     </p>
                   </div>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold">2025</span>
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-sm md:text-base">2025</span>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Leading Innovation</h3>
-                    <p className="text-gray-600 leading-relaxed">
+                    <h3 className="font-bold text-base md:text-lg mb-1 md:mb-2">Leading Innovation</h3>
+                    <p className="text-gray-600 leading-relaxed text-sm md:text-base">
                       Today, we're a trusted partner for businesses of all sizes, helping them strengthen 
                       relationships through thoughtful, high-quality promotional gifts.
                     </p>
@@ -149,22 +149,22 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div className="col-span-12 md:col-span-6">
-              <div className="relative">
-                <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl overflow-hidden shadow-xl">
+            <div className="col-span-1 md:col-span-6 order-1 md:order-2">
+              <div className="relative mb-8 md:mb-0">
+                <div className="aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl md:rounded-2xl overflow-hidden shadow-xl">
                   <div className="w-full h-full flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="text-6xl mb-4">🎁</div>
-                      <h3 className="text-2xl font-bold text-blue-800 mb-2">Our Mission</h3>
-                      <p className="text-blue-600 leading-relaxed">
+                    <div className="text-center p-4 md:p-8">
+                      <div className="text-4xl md:text-6xl mb-3 md:mb-4">🎁</div>
+                      <h3 className="text-lg md:text-2xl font-bold text-blue-800 mb-2">Our Mission</h3>
+                      <p className="text-blue-600 leading-relaxed text-sm md:text-base">
                         To transform every promotional gift into a meaningful connection that strengthens 
                         business relationships and builds lasting brand loyalty.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-blue-600 rounded-2xl transform rotate-12"></div>
-                <div className="absolute -top-6 -left-6 w-16 h-16 bg-yellow-400 rounded-full"></div>
+                <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 w-16 h-16 md:w-24 md:h-24 bg-blue-600 rounded-xl md:rounded-2xl transform rotate-12"></div>
+                <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 w-12 h-12 md:w-16 md:h-16 bg-yellow-400 rounded-full"></div>
               </div>
             </div>
           </div>
