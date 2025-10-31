@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { ArrowRight, Users, Shield, Zap, Award } from "lucide-react"
 import { useState, useEffect } from "react"
-import Globe3D from "../components/globe-3d"
+// Removed 3D globe in favor of static brand logo
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: number }) {
@@ -50,7 +50,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       {/* Enhanced Hero Section */}
-      <section className="pt-24 pb-16 px-4 md:pt-32 md:pb-24 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      <section className="pt-28 pb-0 px-4 md:pt-36 md:pb-0 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden min-h-screen">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block animate-pulse"></div>
@@ -89,15 +89,10 @@ export default function Home() {
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className={`col-span-1 md:col-span-7 mb-8 md:mb-0 transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-              <div className="inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg animate-pulse">
-                🎁 Premium Promotional Gifts
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
-                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>ELEVATE</span>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
+                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>FORTUNE</span>
                 <br />
-                <span className={`text-blue-600 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>YOUR</span>
-                <br />
-                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>BUSINESS</span>
+                <span className={`text-blue-600 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>BUSINESS SOLUTIONS</span>
                 <br />
                 <span className={`transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>TO NEW HEIGHTS</span>
               </h1>
@@ -128,14 +123,37 @@ export default function Home() {
                   <span className="font-medium">Bulk Discounts</span>
                 </div>
               </div>
+
+              {/* Trust bar to make hero feel fuller */}
+              <div className={`mt-8 md:mt-10 transition-all duration-1000 delay-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+                <p className="text-xs md:text-sm text-gray-500 mb-3">Trusted by leading companies</p>
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 max-w-xl">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <div key={i} className="h-8 sm:h-10 bg-gray-100 border border-gray-200 rounded-md flex items-center justify-center text-[10px] sm:text-xs text-gray-400">
+                      LOGO
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="col-span-1 md:col-span-5 flex items-center justify-center">
               <div className="relative w-full max-w-2xl md:max-w-4xl">
 
-                {/* 3D Globe - replacing mesh logo */}
+                {/* Brand logo (replaces previous particle/3D mesh) */}
                 <div className="flex items-center justify-center relative z-10">
                   <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] relative">
-                    <Globe3D />
+                    {/* Subtle glow behind logo to enrich empty space */}
+                    <div className="absolute -inset-10 rounded-full blur-3xl opacity-50"
+                         style={{
+                           background:
+                             'radial-gradient(closest-side, rgba(59,130,246,0.25), rgba(59,130,246,0.05), transparent)'
+                         }}
+                    />
+                    <img
+                      src="/fortunelgoo.png"
+                      alt="Fortune Logo"
+                      className="w-full h-full object-contain drop-shadow-2xl"
+                    />
                   </div>
                 </div>
               </div>
@@ -144,53 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Enhanced Statistics Section */}
-      <section className="py-20 px-4 md:px-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden">
-        {/* Animated Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full animate-pulse"></div>
-          <div className="absolute top-32 right-20 w-24 h-24 border-2 border-white rounded-full animate-bounce" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-white rounded-full animate-ping" style={{ animationDuration: '2s' }}></div>
-          <div className="absolute bottom-32 right-1/3 w-20 h-20 border-2 border-white rounded-full animate-spin" style={{ animationDuration: '15s' }}></div>
-        </div>
-        
-        <div className="container mx-auto relative z-10">
-          <div className="text-center mb-12">
-            <div className={`inline-block bg-white bg-opacity-20 backdrop-blur-sm px-6 py-3 rounded-full mb-6 transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-              <span className="text-sm font-semibold uppercase tracking-widest">Success Metrics</span>
-            </div>
-            <h2 className={`text-3xl md:text-4xl font-bold tracking-tighter mb-4 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>Trusted by Leading Brands</h2>
-            <p className={`text-blue-100 text-lg max-w-2xl mx-auto transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>Our track record speaks for itself</p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '800ms' }}>
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
-                <AnimatedCounter end={5000} />+
-              </div>
-              <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Gifts Delivered</div>
-            </div>
-            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1000ms' }}>
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
-                <AnimatedCounter end={150} />+
-              </div>
-              <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Happy Clients</div>
-            </div>
-            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1200ms' }}>
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
-                <AnimatedCounter end={50} />+
-              </div>
-              <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Product Categories</div>
-            </div>
-            <div className={`group bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-6 hover:bg-opacity-20 transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
-              <div className="text-4xl md:text-5xl font-bold mb-3 group-hover:scale-110 transition-transform duration-300">
-                <AnimatedCounter end={8} />+
-              </div>
-              <div className="text-sm text-blue-100 uppercase tracking-widest font-semibold">Years Experience</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Redesigned About Section */}
       <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
@@ -334,84 +306,45 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
-              <div className="aspect-square bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center relative overflow-hidden">
-                <div className="text-8xl">🔋</div>
-                <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  NEW
-                </div>
-                <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-8">
-                <div className="text-xs text-blue-600 font-semibold uppercase tracking-widest mb-3">Technology Gifts</div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">Wireless Charging Stand</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">Multi-purpose charging solution with LED indicators and fast charging capability for modern workspaces.</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                  </div>
-                  <Link href="/products" className="text-blue-600 font-semibold hover:underline flex items-center">
-                    View Details <ArrowRight className="ml-1" size={14} />
-                  </Link>
-                </div>
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700"></div>
+              <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/5 to-transparent blur-2xl"></div>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-600">Category</div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-700 transition-colors">Technology Gifts</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">Branded devices and accessories for modern teams and events.</p>
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-sm text-gray-500">Details on request</span>
+                <Link href="/products" className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700">
+                  Explore
+                </Link>
               </div>
             </div>
 
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
-              <div className="aspect-square bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center relative overflow-hidden">
-                <div className="text-8xl">🌱</div>
-                <div className="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  ECO
-                </div>
-                <div className="absolute inset-0 bg-green-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-8">
-                <div className="text-xs text-green-600 font-semibold uppercase tracking-widest mb-3">Eco-Friendly</div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-green-600 transition-colors">Bamboo Power Bank</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">Sustainable bamboo wireless power bank with customizable LED logo display and eco-friendly materials.</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                  </div>
-                  <Link href="/products" className="text-green-600 font-semibold hover:underline flex items-center">
-                    View Details <ArrowRight className="ml-1" size={14} />
-                  </Link>
-                </div>
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700"></div>
+              <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-emerald-500/5 to-transparent blur-2xl"></div>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-emerald-600">Category</div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-emerald-700 transition-colors">Eco‑Friendly Products</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">Sustainable materials and planet‑positive gifting.</p>
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-sm text-gray-500">Details on request</span>
+                <Link href="/products" className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-emerald-700">
+                  Explore
+                </Link>
               </div>
             </div>
 
-            <div className="group bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
-              <div className="aspect-square bg-gradient-to-br from-purple-50 to-purple-100 flex items-center justify-center relative overflow-hidden">
-                <div className="text-8xl">🎧</div>
-                <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-                  POPULAR
-                </div>
-                <div className="absolute inset-0 bg-purple-600 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-8">
-                <div className="text-xs text-purple-600 font-semibold uppercase tracking-widest mb-3">Audio & Speakers</div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-600 transition-colors">Wireless Earbuds</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">Premium wireless earbuds with charging case and active noise cancellation for professional use.</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-1">
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                    <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                  </div>
-                  <Link href="/products" className="text-purple-600 font-semibold hover:underline flex items-center">
-                    View Details <ArrowRight className="ml-1" size={14} />
-                  </Link>
-                </div>
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700"></div>
+              <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-purple-500/5 to-transparent blur-2xl"></div>
+              <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-600">Category</div>
+              <h3 className="text-2xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">Audio & Speakers</h3>
+              <p className="mt-3 text-gray-600 leading-relaxed">Headphones, earbuds, speakers and sound accessories.</p>
+              <div className="mt-6 flex items-center justify-between">
+                <span className="text-sm text-gray-500">Details on request</span>
+                <Link href="/products" className="rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-purple-700">
+                  Explore
+                </Link>
               </div>
             </div>
           </div>
