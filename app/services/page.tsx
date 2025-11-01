@@ -492,9 +492,9 @@ export default function Services() {
             <div>
               <h4 className="font-bold mb-4 uppercase tracking-widest">Contact Info</h4>
               <div className="space-y-2 text-blue-100">
-                <p>hello@fortunegifts.com</p>
-                <p>+1 (555) 123-4567</p>
-                <p>New York, NY</p>
+                <p>ceo.fortune@outlook.com</p>
+                <p>+968 91724281</p>
+                <p>Ruwi, Muscat, Oman</p>
               </div>
               <div className="flex space-x-4 mt-4">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="hover:text-white cursor-pointer transition-colors">

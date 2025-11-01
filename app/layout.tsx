@@ -10,7 +10,12 @@ export const metadata = {
   title: "Fortune Gifts Oman - Premium Promotional Gifts & Corporate Gifting",
   description:
     "Oman's premier promotional gifts company. Premium gifts, eco-friendly products, and technology accessories for corporate events, client appreciation, and team recognition across the Sultanate and Gulf region.",
-    generator: 'v0.app'
+    generator: 'v0.app',
+    icons: {
+      icon: "/logomain.png",
+      shortcut: "/logomain.png",
+      apple: "/logomain.png"
+    }
 }
 
 export default function RootLayout({

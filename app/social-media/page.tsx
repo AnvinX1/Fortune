@@ -17,7 +17,7 @@ const socialMediaPlatforms = [
     id: "instagram",
     name: "Instagram",
     icon: Instagram,
-    url: "https://instagram.com/fortunegiftsoman",
+    url: "https://www.instagram.com/fortune_oman?igsh=MWc1bng1aXQ1cTZ6YQ==",
     followers: "1.8K",
     description: "Photos & videos",
     color: "bg-gradient-to-br from-purple-600 to-pink-600",
@@ -75,7 +75,7 @@ export default function SocialMedia() {
         
         <div className="container mx-auto text-center relative z-10">
           <div className={`inline-block bg-blue-100 text-blue-600 px-4 py-2 md:px-6 md:py-3 text-xs md:text-sm font-semibold uppercase tracking-widest mb-4 md:mb-6 rounded-full shadow-lg transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
-            📱 Connect With Us
+           Connect With Us
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
             <span className={`text-white transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>FOLLOW</span>
@@ -196,7 +196,7 @@ export default function SocialMedia() {
                 <MapPin className="text-white text-2xl" />
               </div>
               <h3 className="text-xl font-bold mb-2">Visit Us</h3>
-              <p className="text-gray-600 mb-4">Al Khuwair, Muscat</p>
+              <p className="text-gray-600 mb-4">Ruwi, Muscat</p>
               <Link 
                 href="/contact"
                 className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold"

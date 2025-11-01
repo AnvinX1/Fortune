@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-2xl font-bold mb-4">FORTUNE</h3>
             <p className="text-blue-100">
-              Smart solutions for smart business. Transforming companies through innovative digital strategies.
+              Fortune Business Solution — Premium corporate gifts and business services in Oman.
             </p>
           </div>
           <div>
@@ -57,9 +57,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold mb-4 uppercase tracking-widest">Contact Info</h4>
             <div className="space-y-2 text-blue-100">
-              <p>hello@fortunebusiness.com</p>
-              <p>+1 (555) 123-4567</p>
-              <p>New York, NY</p>
+              <p>ceo.fortune@outlook.com</p>
+              <p>+968 91724281</p>
+              <p>Ruwi, Muscat, Oman</p>
             </div>
             <div className="flex space-x-4 mt-4">
               <Facebook size={20} className="hover:text-white cursor-pointer transition-colors" />

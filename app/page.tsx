@@ -42,9 +42,23 @@ function AnimatedCounter({ end, duration = 2000 }: { end: number; duration?: num
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   
   useEffect(() => {
     setIsVisible(true)
+  }, [])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e
+      const { innerWidth, innerHeight } = window
+      const x = (clientX / innerWidth - 0.5) * 30
+      const y = (clientY / innerHeight - 0.5) * 30
+      setMousePosition({ x, y })
+    }
+    
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [])
   
   return (
@@ -53,17 +67,17 @@ export default function Home() {
       <section className="pt-28 pb-0 px-4 md:pt-36 md:pb-0 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden min-h-screen">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-blue-600 rounded-full hidden md:block animate-bounce" style={{ animationDuration: '3s' }}></div>
-          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full hidden md:block animate-ping" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full hidden md:block animate-spin" style={{ animationDuration: '20s' }}></div>
+          <div className="absolute top-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full hidden md:block motion-safe:animate-pulse transition-transform duration-1000 ease-out" style={{ transform: `translate(${mousePosition.x * 0.15}px, ${mousePosition.y * 0.15}px)` }}></div>
+          <div className="absolute top-40 right-20 w-24 h-24 border-2 border-blue-600 rounded-full hidden md:block motion-safe:animate-bounce transition-transform duration-1200 ease-out" style={{ animationDuration: '3s', transform: `translate(${mousePosition.x * -0.12}px, ${mousePosition.y * -0.12}px)` }}></div>
+          <div className="absolute bottom-20 left-1/4 w-16 h-16 border-2 border-blue-600 rounded-full hidden md:block motion-safe:animate-ping transition-transform duration-1400 ease-out" style={{ animationDuration: '4s', transform: `translate(${mousePosition.x * 0.08}px, ${mousePosition.y * 0.08}px)` }}></div>
+          <div className="absolute bottom-40 right-1/3 w-20 h-20 border-2 border-blue-600 rounded-full hidden md:block motion-safe:animate-spin transition-transform duration-1600 ease-out" style={{ animationDuration: '20s', transform: `translate(${mousePosition.x * -0.1}px, ${mousePosition.y * -0.1}px)` }}></div>
         </div>
 
         {/* Animated Globe/Net Web in Top Right Corner */}
         <div className="absolute top-8 right-8 w-20 h-20 hidden md:block z-20">
           <div className="relative w-full h-full">
             {/* Globe/Web Animation */}
-            <div className="absolute inset-0 animate-spin" style={{ animationDuration: '15s' }}>
+            <div className="absolute inset-0 motion-safe:animate-spin" style={{ animationDuration: '15s' }}>
               <div className="w-full h-full border-2 border-blue-600 rounded-full relative">
                 {/* Web Lines */}
                 <div className="absolute inset-0">
@@ -79,27 +93,27 @@ export default function Home() {
               </div>
             </div>
             {/* Orbiting Elements */}
-            <div className="absolute top-0 left-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-x-1/2 animate-pulse"></div>
-            <div className="absolute bottom-0 left-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-x-1/2 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-            <div className="absolute left-0 top-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-y-1/2 animate-pulse" style={{ animationDelay: '1s' }}></div>
-            <div className="absolute right-0 top-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-y-1/2 animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+            <div className="absolute top-0 left-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-x-1/2 motion-safe:animate-pulse"></div>
+            <div className="absolute bottom-0 left-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-x-1/2 motion-safe:animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+            <div className="absolute left-0 top-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-y-1/2 motion-safe:animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute right-0 top-1/2 w-1 h-1 bg-blue-500 rounded-full transform -translate-y-1/2 motion-safe:animate-pulse" style={{ animationDelay: '1.5s' }}></div>
           </div>
         </div>
         
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
-            <div className={`col-span-1 md:col-span-7 mb-8 md:mb-0 transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
-                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>FORTUNE</span>
+            <div className={`col-span-1 md:col-span-7 mb-8 md:mb-0 transition-all duration-700 ease-out transform-gpu ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-6 opacity-0'}`} style={{ willChange: 'transform, opacity' }}>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tighter leading-tight md:leading-none mb-6 md:mb-8">
+                <span className={`bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent transition-all duration-700 delay-200 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>FORTUNE</span>
                 <br />
-                <span className={`text-blue-600 transition-all duration-1000 delay-400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>BUSINESS SOLUTIONS</span>
+                <span className={`text-blue-600 transition-all duration-700 delay-400 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>BUSINESS SOLUTIONS</span>
                 <br />
-                <span className={`transition-all duration-1000 delay-800 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>TO NEW HEIGHTS</span>
+                <span className={`transition-all duration-700 delay-800 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>TO NEW HEIGHTS</span>
               </h1>
-              <p className={`text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-700 leading-relaxed transition-all duration-1000 delay-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <p className={`text-lg md:text-xl max-w-2xl mb-6 md:mb-8 text-gray-700 leading-relaxed transition-all duration-700 delay-700 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
                 Transform your business relationships with our comprehensive suite of premium solutions. From innovative promotional gifts and eco-friendly products to cutting-edge technology accessories and professional services. We deliver excellence across Oman and the Gulf region, helping you build lasting connections and drive meaningful impact.
               </p>
-              <div className={`flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 transition-all duration-1000 delay-1200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <div className={`flex flex-col sm:flex-row gap-3 md:gap-4 mb-6 md:mb-8 transition-all duration-700 delay-800 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
                 <Link href="/products" className="bg-blue-600 text-white px-6 py-3 md:px-10 md:py-4 text-sm uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-center shadow-xl hover:shadow-2xl rounded-xl font-bold group">
                   Explore Products
                   <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -109,44 +123,50 @@ export default function Home() {
                   <ArrowRight className="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
-              <div className={`flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-700 transition-all duration-1000 delay-1400 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <div className={`flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm text-gray-700 transition-all duration-700 delay-900 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
                 <div className="flex items-center gap-2 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full motion-safe:animate-pulse"></div>
                   <span className="font-medium">Custom Branding</span>
                 </div>
                 <div className="flex items-center gap-2 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <div className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-bounce"></div>
+                  <div className="w-2.5 h-2.5 bg-blue-500 rounded-full motion-safe:animate-bounce"></div>
                   <span className="font-medium">Fast Delivery</span>
                 </div>
                 <div className="flex items-center gap-2 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 px-4 py-2 md:px-5 md:py-2.5 rounded-full shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
-                  <div className="w-2.5 h-2.5 bg-purple-500 rounded-full animate-ping"></div>
+                  <div className="w-2.5 h-2.5 bg-purple-500 rounded-full motion-safe:animate-ping"></div>
                   <span className="font-medium">Bulk Discounts</span>
                 </div>
               </div>
 
               {/* Trust bar to make hero feel fuller */}
-              <div className={`mt-8 md:mt-10 transition-all duration-1000 delay-1500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+              <div className={`mt-8 md:mt-10 transition-all duration-700 delay-1000 ease-out ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
                 <p className="text-xs md:text-sm text-gray-500 mb-3">Trusted by leading companies</p>
-                <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 max-w-xl">
+                <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 max-w-xl items-center">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className="h-8 sm:h-10 bg-gray-100 border border-gray-200 rounded-md flex items-center justify-center text-[10px] sm:text-xs text-gray-400">
-                      LOGO
+                    <div key={i} className="h-8 sm:h-10 rounded-md flex items-center justify-center">
+                      <img
+                        src="/placeholder-logo.svg"
+                        alt="Client logo placeholder"
+                        className="h-6 sm:h-8 w-auto opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition"
+                      />
                     </div>
                   ))}
                 </div>
               </div>
             </div>
-            <div className="col-span-1 md:col-span-5 flex items-center justify-center">
+            <div className={`col-span-1 md:col-span-5 flex items-center justify-center transition-all duration-700 ease-out transform-gpu ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-6 opacity-0'}`}
+            style={{ willChange: 'transform, opacity' }}
+            >
               <div className="relative w-full max-w-2xl md:max-w-4xl">
 
                 {/* Brand logo (replaces previous particle/3D mesh) */}
                 <div className="flex items-center justify-center relative z-10">
-                  <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[32rem] xl:h-[32rem] relative">
+                  <div className="w-80 h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] xl:w-[36rem] xl:h-[36rem] relative">
                     {/* Subtle glow behind logo to enrich empty space */}
-                    <div className="absolute -inset-10 rounded-full blur-3xl opacity-50"
+                    <div className="absolute -inset-10 rounded-full blur-3xl opacity-60 motion-safe:animate-pulse"
                          style={{
                            background:
-                             'radial-gradient(closest-side, rgba(59,130,246,0.25), rgba(59,130,246,0.05), transparent)'
+                             'radial-gradient(closest-side, rgba(59,130,246,0.30), rgba(59,130,246,0.08), transparent)'
                          }}
                     />
                     <img
@@ -168,8 +188,8 @@ export default function Home() {
       <section className="py-20 px-4 md:px-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 right-10 w-24 h-24 border-2 border-blue-600 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full animate-spin" style={{ animationDuration: '20s' }}></div>
+          <div className="absolute top-20 right-10 w-24 h-24 border-2 border-blue-600 rounded-full motion-safe:animate-pulse"></div>
+          <div className="absolute bottom-20 left-10 w-32 h-32 border-2 border-blue-600 rounded-full motion-safe:animate-spin" style={{ animationDuration: '20s' }}></div>
         </div>
         
         <div className="container mx-auto relative z-10">
@@ -233,8 +253,8 @@ export default function Home() {
       <section className="py-20 px-4 md:px-8 bg-white relative overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-20 w-40 h-40 border-2 border-blue-600 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 right-20 w-32 h-32 border-2 border-blue-600 rounded-full animate-bounce" style={{ animationDuration: '4s' }}></div>
+          <div className="absolute top-10 left-20 w-40 h-40 border-2 border-blue-600 rounded-full motion-safe:animate-pulse"></div>
+          <div className="absolute bottom-10 right-20 w-32 h-32 border-2 border-blue-600 rounded-full motion-safe:animate-bounce" style={{ animationDuration: '4s' }}></div>
         </div>
         
         <div className="container mx-auto relative z-10">
@@ -306,7 +326,7 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-blue-200">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700"></div>
               <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/5 to-transparent blur-2xl"></div>
               <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-600">Category</div>
@@ -320,7 +340,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-emerald-200">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-500 via-emerald-600 to-emerald-700"></div>
               <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-emerald-500/5 to-transparent blur-2xl"></div>
               <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-emerald-600">Category</div>
@@ -334,7 +354,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="group relative rounded-2xl border border-gray-200 bg-white p-8 md:p-10 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-purple-200">
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700"></div>
               <div className="absolute -inset-8 -z-10 rounded-3xl bg-gradient-to-br from-purple-500/5 to-transparent blur-2xl"></div>
               <div className="mb-2 text-xs font-semibold uppercase tracking-widest text-purple-600">Category</div>
@@ -706,9 +726,9 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4 uppercase tracking-widest">Contact Info</h4>
               <div className="space-y-2 text-blue-100">
-                <p>hello@fortunegifts.com</p>
-                <p>+1 (555) 123-4567</p>
-                <p>New York, NY</p>
+                <p>ceo.fortune@outlook.com</p>
+                <p>+968 91724281</p>
+                <p>Ruwi, Muscat, Oman</p>
               </div>
               <div className="flex space-x-4 mt-4">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="hover:text-white cursor-pointer transition-colors">

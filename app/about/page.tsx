@@ -6,40 +6,22 @@ import { useState, useEffect } from "react"
 
 const teamMembers = [
   {
-    name: "Ahmed Al-Rashid",
-    position: "CEO & Founder",
-    image: "/team-ahmed-alrashid.jpg",
-    bio: "15+ years of experience in product sourcing and business relationship management across the GCC region.",
+    name: "Suraj Noncowry",
+    position: "CEO",
+    image: "",
+    bio: "CEO, Fortune Business Solution — Muscat, Oman. Phone: +968 91724281 · Email: ceo.fortune@outlook.com",
   },
   {
-    name: "Fatima Al-Zahra",
-    position: "CTO",
-    image: "/team-fatima-alzahra.jpg",
-    bio: "Expert in supply chain management and modern logistics technologies with Middle East expertise.",
+    name: "Atheena Naz",
+    position: "Business Development Manager (Staffing Solution)",
+    image: "",
+    bio: "Business Development Manager, Staffing Solution — Muscat, Oman. Phone: +968 93634281 · Email: bdm.fortune@outlook.com",
   },
   {
-    name: "Omar Al-Harthy",
-    position: "Head of Product",
-    image: "/team-omar-alharthy.jpg",
-    bio: "Specializes in product curation and brand partnership development in the Gulf markets.",
-  },
-  {
-    name: "Mariam Al-Balushi",
-    position: "Lead Designer",
-    image: "/team-mariam-albalushi.jpg",
-    bio: "Creative designer with expertise in custom branding and visual identity for regional clients.",
-  },
-  {
-    name: "Khalid Al-Said",
-    position: "Quality Manager",
-    image: "/team-khalid-alsaid.jpg",
-    bio: "Quality assurance expert focused on product standards and customer satisfaction in Oman.",
-  },
-  {
-    name: "Aisha Al-Hinai",
-    position: "Operations Manager",
-    image: "/team-aisha-alhinai.jpg",
-    bio: "Operations specialist with a track record of successful order fulfillment and delivery across Oman.",
+    name: "Pavithra Ramasamy",
+    position: "Business Development Manager (Branding Solution)",
+    image: "",
+    bio: "Business Development Manager, Branding Solution — Muscat, Oman. Phone: +968 99684281 · Email: sales.fortuneoman@outlook.com",
   },
 ]
 
@@ -410,9 +392,9 @@ export default function About() {
             <div>
               <h4 className="font-bold mb-4 uppercase tracking-widest">Contact Info</h4>
               <div className="space-y-2 text-blue-100">
-                <p>hello@fortunegifts.com</p>
-                <p>+1 (555) 123-4567</p>
-                <p>New York, NY</p>
+                <p>ceo.fortune@outlook.com</p>
+                <p>+968 91724281</p>
+                <p>Ruwi, Muscat, Oman</p>
               </div>
               <div className="flex space-x-4 mt-4">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="hover:text-white cursor-pointer transition-colors">
